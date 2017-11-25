@@ -25,7 +25,7 @@ import java.io.IOException;
 @SpringBootApplication
 @Import(SecurityConfiguration.class)
 public class Main extends Application {
-
+//test
     private Stage primaryStage;
     private ConfigurableApplicationContext springContext;
     private boolean noDatabase = false;
