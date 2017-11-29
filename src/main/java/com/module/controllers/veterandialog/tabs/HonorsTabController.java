@@ -43,6 +43,10 @@ public class HonorsTabController {
     @FXML
     private TableColumn<VeteranHonorEntity, String> orderColumn;
     @FXML
+    private TableColumn<VeteranHonorEntity, String> seriesOfHonorColumn;
+    @FXML
+    private TableColumn<VeteranHonorEntity, String> numberOfHonorColumn;
+    @FXML
     private Button addHonorButton;
     @FXML
     private Button editHonorButton;
@@ -110,6 +114,8 @@ public class HonorsTabController {
         nameOfHonorColumn.setCellValueFactory(new PropertyValueFactory<>("honor"));
         dateOfReceivingColumn.setCellValueFactory(new PropertyValueFactory<>("dateOfReceiving"));
         orderColumn.setCellValueFactory(new PropertyValueFactory<>("decree"));
+        seriesOfHonorColumn.setCellValueFactory(new PropertyValueFactory<>("honorSeries"));
+        numberOfHonorColumn.setCellValueFactory(new PropertyValueFactory<>("honorNumber"));
         dateOfReceivingColumn.setCellFactory(getTableColumnTableCellCallback());
         honorsData.clear();
     }

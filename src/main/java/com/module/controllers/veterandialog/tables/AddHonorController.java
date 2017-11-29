@@ -22,6 +22,10 @@ public class AddHonorController {
     private ComboBox<HonorEntity> nameField;
     @FXML
     private TextField signedOrder;
+    @FXML
+    private TextField honorSeriesField;
+    @FXML
+    private TextField honorNumberField;
 
     private Stage dialogStage;
 
@@ -50,6 +54,8 @@ public class AddHonorController {
         nameField.setValue(this.veteranHonorEntity.getHonor());
         dateOfReceivingField.setValue(this.veteranHonorEntity.getDateOfReceiving());
         signedOrder.setText(this.veteranHonorEntity.getDecree());
+        honorSeriesField.setText(this.veteranHonorEntity.getHonorSeries());
+        honorNumberField.setText(this.veteranHonorEntity.getHonorNumber());
     }
 
     @FXML
@@ -68,5 +74,7 @@ public class AddHonorController {
         this.veteranHonorEntity.setHonor(nameField.getValue());
         this.veteranHonorEntity.setDateOfReceiving(dateOfReceivingField.getValue());
         this.veteranHonorEntity.setDecree(signedOrder.getText());
+        this.veteranHonorEntity.setHonorSeries(honorSeriesField.getText());
+        this.veteranHonorEntity.setHonorNumber(honorNumberField.getText());
     }
 }
