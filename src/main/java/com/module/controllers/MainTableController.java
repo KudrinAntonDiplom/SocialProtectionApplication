@@ -40,6 +40,20 @@ public class MainTableController {
     private TableColumn<VeteranEntity, String> middleNameColumn;
     @FXML
     private TableColumn<VeteranEntity, String> militaryRankColumn;
+    @FXML
+    private TableColumn<VeteranEntity, String> subcategoryColumn;
+    @FXML
+    private TableColumn<VeteranEntity, String > militaryPositionColumn;
+    @FXML
+    private TableColumn<VeteranEntity, String > marchingOrganizationColumn;
+    @FXML
+    private  TableColumn<VeteranEntity, String> villageExecutiveCommitteeColumn;
+    @FXML
+    private  TableColumn<VeteranEntity, String> regionalExecutiveCommitteeColumn;
+    @FXML
+    private  TableColumn<VeteranEntity, String> rgvkColumn;
+    @FXML
+    private  TableColumn<VeteranEntity, String> subdivisionColumn;
 
     private ObservableList<VeteranEntity> veteransData = FXCollections.observableArrayList();
 
@@ -81,6 +95,14 @@ public class MainTableController {
         categoryColumn.setCellValueFactory(new PropertyValueFactory<>("category"));
         districtColumn.setCellValueFactory(new PropertyValueFactory<>("district"));
         addressColumn.setCellValueFactory(new PropertyValueFactory<>("address"));
+        subcategoryColumn.setCellValueFactory(new PropertyValueFactory<>("subcategory"));
+        militaryPositionColumn.setCellValueFactory(new PropertyValueFactory<>("position"));
+        marchingOrganizationColumn.setCellValueFactory(new PropertyValueFactory<>(" marchingOrganization"));
+        villageExecutiveCommitteeColumn.setCellValueFactory(new PropertyValueFactory<>("villageExecutiveCommittee"));
+        regionalExecutiveCommitteeColumn.setCellValueFactory(new PropertyValueFactory<>("regionalExecutiveCommittee"));
+        rgvkColumn.setCellValueFactory(new PropertyValueFactory<>("rgvk"));
+        subdivisionColumn.setCellValueFactory(new PropertyValueFactory<>("subdivision"));
+
         mainTable.setItems(veteransData);
         mainTable.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
     }

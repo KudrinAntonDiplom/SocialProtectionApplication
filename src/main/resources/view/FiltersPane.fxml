@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" ?>
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
@@ -67,7 +67,20 @@
                                AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0"/>
                         <Label layoutX="5.0" layoutY="190.0" prefHeight="17.0" prefWidth="79.0" text="Награды"
                                textAlignment="CENTER"/>
-                        <CheckBox fx:id="aloneCheckBox" layoutX="5.0" layoutY="715.0" mnemonicParsing="false"
+                        <Label layoutX="5.0" layoutY="715.0" prefHeight="40.0" prefWidth="170.0"
+                               text="Министерство выдающиее пенсию" wrapText="true" AnchorPane.leftAnchor="5.0"
+                               AnchorPane.rightAnchor="5.0"/>
+                        <CheckComboBox fx:id="ministryGivePension" layoutX="5.0" layoutY="755.0"
+                                       AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0"/>
+                        <Label layoutX="5.0" layoutY="780.0" prefHeight="17.0" prefWidth="170.0" text="Область рожения" wrapText="true"
+                               textAlignment="CENTER"/>
+                        <TextField fx:id="RegionOfBirth" layoutX="5.0" layoutY="797.0"
+                                   AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0"/>
+                        <Label layoutX="5.0" layoutY="832.0" prefHeight="17.0" prefWidth="170.0" text="Город рожения" wrapText="true"
+                               textAlignment="CENTER"/>
+                        <TextField fx:id="townOfBirth" layoutX="5.0" layoutY="849.0"
+                                   AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0"/>
+                        <CheckBox fx:id="aloneCheckBox" layoutX="5.0" layoutY="884.0" mnemonicParsing="false"
                                   text="Одинокие" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0"/>
                     </children>
                 </AnchorPane>

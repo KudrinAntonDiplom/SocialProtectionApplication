@@ -19,6 +19,13 @@
                 <TableColumn fx:id="categoryColumn" prefWidth="75" text="Категория"/>
                 <TableColumn fx:id="districtColumn" prefWidth="130" text="Район"/>
                 <TableColumn fx:id="addressColumn" prefWidth="120.0" text="Адрес"/>
+                <TableColumn fx:id="subcategoryColumn" prefWidth="120.0" text="Подкатегория"/>
+                <TableColumn fx:id="militaryPositionColumn" prefWidth="120.0" text="Воинская должность"/>
+                <TableColumn fx:id="marchingOrganizationColumn" prefWidth="120.0" text="Шествующая организация"/>
+                <TableColumn fx:id="villageExecutiveCommitteeColumn" prefWidth="120.0" text="Сельский комитет"/>
+                <TableColumn fx:id="regionalExecutiveCommitteeColumn" prefWidth="120.0" text="Районы комитет"/>
+                <TableColumn fx:id="rgvkColumn" prefWidth="120.0" text="Исполнительный комитет"/>
+                <TableColumn fx:id="subdivisionColumn" prefWidth="120.0" text="Подраздиление"/>
             </columns>
             <opaqueInsets>
                 <Insets right="1.0"/>
