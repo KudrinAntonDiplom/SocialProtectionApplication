@@ -44,6 +44,11 @@ public class LoginDialogController {
             final String userName = "Admin";
             final String password = "9l9OSJ";
 
+            //auto volk
+//            final String userName = "Prokopchik500";
+//            final String password = "hBnJ7y";
+
+
             Authentication request = new UsernamePasswordAuthenticationToken(userName, password);
             Authentication result = authManager.authenticate(request);
             SecurityContextHolder.getContext().setAuthentication(result);

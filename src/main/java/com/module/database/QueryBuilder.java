@@ -169,7 +169,7 @@ public class QueryBuilder {
             countQuery = "*";
 
             if (page != -1) {
-                paginator = " LIMIT 50 OFFSET " + (page * 50);
+                paginator = " LIMIT 50000 OFFSET " + (page * 50000);
             }
         }
 
