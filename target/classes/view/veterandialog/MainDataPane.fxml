@@ -56,6 +56,6 @@
         <Label layoutX="391.0" layoutY="479.0" text="РГВК" AnchorPane.leftAnchor="391.0" AnchorPane.topAnchor="479.0" />
       <TextField fx:id="bornAddressField" layoutX="570.0" layoutY="509.0" prefHeight="25.0" prefWidth="180.0" />
       <Label layoutX="391.0" layoutY="513.0" text="Место рождения" />
-      <CheckBox fx:id="isAloneCheckBox" focusTraversable="false" layoutX="31.0" layoutY="479.0" mnemonicParsing="false" onAction="#setVisibleFields" text="Одинокий" />
+      <CheckBox fx:id="isAloneCheckBox" focusTraversable="false" layoutX="31.0" layoutY="479.0" mnemonicParsing="false" text="Одинокий" />
     </children>
 </AnchorPane>

@@ -63,6 +63,9 @@ public class VeteranEntity {
     @Column(name = "is_dead")
     private Boolean isDead;
 
+    @Column(name = "is_alone")
+    private Boolean isAlone;
+
     @Column(name = "marching_organization")
     private String marchingOrganization;
 
@@ -259,6 +262,13 @@ public class VeteranEntity {
     @XmlJavaTypeAdapter(value = BooleanAdapter.class)
     public void setIsDead(Boolean dead) {
         isDead = dead;
+    }
+
+    public Boolean getIsAlone() { return isAlone; }
+
+    @XmlJavaTypeAdapter(value = BooleanAdapter.class)
+    public void setIsAlone(Boolean alone) {
+        isAlone = alone;
     }
 
     public String getMarchingOrganization() {
@@ -477,6 +487,7 @@ public class VeteranEntity {
                 ", marchingOrganization='" + marchingOrganization + '\'' +
                 ", burialPlace='" + burialPlace + '\'' +
                 ", isDead=" + isDead +
+                ", isAlone=" + isAlone +
                 ", position='" + position + '\'' +
                 ", rank=" + militaryRank +
                 ", category=" + category +

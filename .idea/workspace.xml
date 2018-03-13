@@ -2,25 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="23d83f8c-6763-4c12-aae4-90fbe460b7b3" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/SocialProtectionApplicationNew.iml" afterPath="$PROJECT_DIR$/SocialProtectionApplicationNew.iml" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/module/controllers/FooterController.java" afterPath="$PROJECT_DIR$/src/main/java/com/module/controllers/FooterController.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/module/controllers/LoginDialogController.java" afterPath="$PROJECT_DIR$/src/main/java/com/module/controllers/LoginDialogController.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/module/controllers/MainTableController.java" afterPath="$PROJECT_DIR$/src/main/java/com/module/controllers/MainTableController.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/module/database/QueryBuilder.java" afterPath="$PROJECT_DIR$/src/main/java/com/module/database/QueryBuilder.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/module/helpers/UuidAutoGenerator.java" afterPath="$PROJECT_DIR$/src/main/java/com/module/helpers/UuidAutoGenerator.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/view/MainTable.fxml" afterPath="$PROJECT_DIR$/src/main/resources/view/MainTable.fxml" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/module/controllers/veterandialog/MainDataPaneController.java" afterPath="$PROJECT_DIR$/src/main/java/com/module/controllers/veterandialog/MainDataPaneController.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/module/controllers/veterandialog/VeteranDialogDataManager.java" afterPath="$PROJECT_DIR$/src/main/java/com/module/controllers/veterandialog/VeteranDialogDataManager.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/module/model/entity/VeteranEntity.java" afterPath="$PROJECT_DIR$/src/main/java/com/module/model/entity/VeteranEntity.java" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/view/veterandialog/MainDataPane.fxml" afterPath="$PROJECT_DIR$/src/main/resources/view/veterandialog/MainDataPane.fxml" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/module/controllers/DatabasePropertiesController.class" afterPath="$PROJECT_DIR$/target/classes/com/module/controllers/DatabasePropertiesController.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/module/controllers/FooterController.class" afterPath="$PROJECT_DIR$/target/classes/com/module/controllers/FooterController.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/module/controllers/LoginDialogController.class" afterPath="$PROJECT_DIR$/target/classes/com/module/controllers/LoginDialogController.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/module/controllers/MainTableController$1.class" afterPath="$PROJECT_DIR$/target/classes/com/module/controllers/MainTableController$1.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/module/controllers/MainTableController.class" afterPath="$PROJECT_DIR$/target/classes/com/module/controllers/MainTableController.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/module/database/QueryBuilder.class" afterPath="$PROJECT_DIR$/target/classes/com/module/database/QueryBuilder.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/module/helpers/ScriptRunner.class" afterPath="$PROJECT_DIR$/target/classes/com/module/helpers/ScriptRunner.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/view/MainTable.fxml" afterPath="$PROJECT_DIR$/target/classes/view/MainTable.fxml" />
-      <change beforePath="$PROJECT_DIR$/target/classes/view/veterandialog/MainDataPane.fxml" afterPath="$PROJECT_DIR$/target/classes/view/veterandialog/MainDataPane.fxml" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -35,6 +20,36 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="VeteranRepository.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/module/repository/VeteranRepository.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="140">
+              <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="User.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/module/model/auth/User.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="212">
+              <caret line="34" column="23" lean-forward="false" selection-start-line="34" selection-start-column="23" selection-end-line="34" selection-end-column="23" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Role.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/module/model/auth/Role.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="260">
+              <caret line="21" column="22" lean-forward="true" selection-start-line="21" selection-start-column="22" selection-end-line="21" selection-end-column="22" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="UuidAutoGenerator.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/module/helpers/UuidAutoGenerator.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -45,100 +60,67 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="HashConverter.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/module/helpers/HashConverter.java">
+      <file leaf-file-name="ExcelTableGenerator.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/module/helpers/ExcelTableGenerator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="460">
-              <caret line="30" column="9" lean-forward="true" selection-start-line="30" selection-start-column="9" selection-end-line="30" selection-end-column="9" />
+            <state relative-caret-position="80">
+              <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RgvkRepository.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/module/repository/RgvkRepository.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="100">
-              <caret line="7" column="17" lean-forward="false" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="VeteranRepository.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/module/repository/VeteranRepository.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="100">
-              <caret line="8" column="17" lean-forward="false" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="VeteranEntity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/module/model/entity/VeteranEntity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="140">
-              <caret line="22" column="13" lean-forward="false" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RgvkEntity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/module/model/entity/RgvkEntity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Root.fxml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/view/Root.fxml">
-          <provider selected="true" editor-type-id="JavaFX-Scene-Builder">
-            <state />
-          </provider>
-          <provider editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="15" column="37" lean-forward="false" selection-start-line="15" selection-start-column="37" selection-end-line="15" selection-end-column="37" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="VeteranDialog.fxml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/view/veterandialog/VeteranDialog.fxml">
-          <provider selected="true" editor-type-id="JavaFX-Scene-Builder">
-            <state />
-          </provider>
-          <provider editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MainDataPane.fxml" pinned="false" current-in-tab="true">
+      <file leaf-file-name="MainDataPane.fxml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/view/veterandialog/MainDataPane.fxml">
           <provider editor-type-id="JavaFX-Scene-Builder">
             <state />
           </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="500">
-              <caret line="25" column="56" lean-forward="true" selection-start-line="25" selection-start-column="56" selection-end-line="25" selection-end-column="56" />
+            <state relative-caret-position="433">
+              <caret line="57" column="69" lean-forward="true" selection-start-line="57" selection-start-column="69" selection-end-line="57" selection-end-column="69" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MainDataPaneController.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="FooterPane.fxml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/view/veterandialog/FooterPane.fxml">
+          <provider editor-type-id="JavaFX-Scene-Builder">
+            <state />
+          </provider>
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="220">
+              <caret line="11" column="86" lean-forward="false" selection-start-line="11" selection-start-column="86" selection-end-line="11" selection-end-column="86" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FooterPaneController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/module/controllers/veterandialog/FooterPaneController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="495">
+              <caret line="58" column="45" lean-forward="false" selection-start-line="58" selection-start-column="45" selection-end-line="58" selection-end-column="45" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="VeteranDialogDataManager.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/module/controllers/veterandialog/VeteranDialogDataManager.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="198">
+              <caret line="54" column="86" lean-forward="false" selection-start-line="54" selection-start-column="86" selection-end-line="54" selection-end-column="86" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MainDataPaneController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/module/controllers/veterandialog/MainDataPaneController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1900">
-              <caret line="128" column="28" lean-forward="false" selection-start-line="128" selection-start-column="12" selection-end-line="128" selection-end-column="28" />
+            <state relative-caret-position="-246">
+              <caret line="107" column="26" lean-forward="false" selection-start-line="107" selection-start-column="26" selection-end-line="107" selection-end-column="26" />
               <folding />
             </state>
           </provider>
@@ -156,6 +138,8 @@
       <find>caseNumberColumn</find>
       <find>подра</find>
       <find>умер</find>
+      <find>ргв</find>
+      <find>dead</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -180,6 +164,9 @@
         <option value="$PROJECT_DIR$/src/main/java/com/module/controllers/LoginDialogController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/module/helpers/UuidAutoGenerator.java" />
         <option value="$PROJECT_DIR$/src/main/resources/view/veterandialog/MainDataPane.fxml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/module/model/entity/VeteranEntity.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/module/controllers/veterandialog/VeteranDialogDataManager.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/module/controllers/veterandialog/MainDataPaneController.java" />
       </list>
     </option>
   </component>
@@ -189,7 +176,7 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="336" />
     <option name="width" value="1451" />
     <option name="height" value="752" />
@@ -259,6 +246,16 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="module" type="462c0819:PsiDirectoryNode" />
               <item name="controllers" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SocialProtectionApplicationNew" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MAINPROJECT" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="module" type="462c0819:PsiDirectoryNode" />
+              <item name="controllers" type="462c0819:PsiDirectoryNode" />
+              <item name="veterandialog" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="SocialProtectionApplicationNew" type="b2602c69:ProjectViewProjectNode" />
@@ -679,7 +676,7 @@
     <option name="totallyTimeSpent" value="606000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -775,6 +772,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3160">
           <caret line="184" column="5" lean-forward="false" selection-start-line="184" selection-start-column="5" selection-end-line="184" selection-end-column="5" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -885,13 +883,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/module/model/auth/User.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="500">
-          <caret line="34" column="23" lean-forward="false" selection-start-line="34" selection-start-column="23" selection-end-line="34" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/module/repository/UserRepository.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
@@ -928,13 +919,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/module/model/auth/Role.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="26" column="22" lean-forward="false" selection-start-line="26" selection-start-column="22" selection-end-line="26" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/view/FooterPane.fxml">
       <provider editor-type-id="JavaFX-Scene-Builder">
         <state />
@@ -950,32 +934,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="220">
           <caret line="89" column="33" lean-forward="false" selection-start-line="89" selection-start-column="33" selection-end-line="89" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/view/veterandialog/FooterPane.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="11" column="81" lean-forward="false" selection-start-line="11" selection-start-column="81" selection-end-line="11" selection-end-column="81" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/module/controllers/veterandialog/FooterPaneController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="520">
-          <caret line="38" column="43" lean-forward="false" selection-start-line="38" selection-start-column="43" selection-end-line="38" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/module/controllers/veterandialog/VeteranDialogDataManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="229">
-          <caret line="76" column="16" lean-forward="false" selection-start-line="76" selection-start-column="16" selection-end-line="76" selection-end-column="16" />
           <folding />
         </state>
       </provider>
@@ -1033,13 +991,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/module/helpers/ExcelTableGenerator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/module/helpers/ScriptRunner.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="100">
@@ -1065,14 +1016,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/module/helpers/UuidAutoGenerator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="13" column="43" lean-forward="false" selection-start-line="13" selection-start-column="43" selection-end-line="13" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/module/helpers/HashConverter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="460">
@@ -1085,22 +1028,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="100">
           <caret line="7" column="17" lean-forward="false" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/module/repository/VeteranRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="8" column="17" lean-forward="false" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/module/model/entity/VeteranEntity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="22" column="13" lean-forward="false" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
           <folding />
         </state>
       </provider>
@@ -1135,10 +1062,61 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/module/controllers/veterandialog/MainDataPaneController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/module/model/entity/VeteranEntity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1900">
-          <caret line="128" column="28" lean-forward="false" selection-start-line="128" selection-start-column="12" selection-end-line="128" selection-end-column="28" />
+        <state relative-caret-position="-1234">
+          <caret line="267" column="0" lean-forward="true" selection-start-line="267" selection-start-column="0" selection-end-line="267" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/module/repository/VeteranRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/module/model/auth/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="212">
+          <caret line="34" column="23" lean-forward="false" selection-start-line="34" selection-start-column="23" selection-end-line="34" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/module/model/auth/Role.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="21" column="22" lean-forward="true" selection-start-line="21" selection-start-column="22" selection-end-line="21" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/module/helpers/UuidAutoGenerator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="13" column="43" lean-forward="false" selection-start-line="13" selection-start-column="43" selection-end-line="13" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/module/helpers/ExcelTableGenerator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/view/veterandialog/FooterPane.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="11" column="86" lean-forward="false" selection-start-line="11" selection-start-column="86" selection-end-line="11" selection-end-column="86" />
           <folding />
         </state>
       </provider>
@@ -1148,8 +1126,32 @@
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="500">
-          <caret line="25" column="56" lean-forward="true" selection-start-line="25" selection-start-column="56" selection-end-line="25" selection-end-column="56" />
+        <state relative-caret-position="433">
+          <caret line="57" column="69" lean-forward="true" selection-start-line="57" selection-start-column="69" selection-end-line="57" selection-end-column="69" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/module/controllers/veterandialog/FooterPaneController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="495">
+          <caret line="58" column="45" lean-forward="false" selection-start-line="58" selection-start-column="45" selection-end-line="58" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/module/controllers/veterandialog/VeteranDialogDataManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="54" column="86" lean-forward="false" selection-start-line="54" selection-start-column="86" selection-end-line="54" selection-end-column="86" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/module/controllers/veterandialog/MainDataPaneController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-246">
+          <caret line="107" column="26" lean-forward="false" selection-start-line="107" selection-start-column="26" selection-end-line="107" selection-end-column="26" />
           <folding />
         </state>
       </provider>
