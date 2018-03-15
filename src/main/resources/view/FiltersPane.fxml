@@ -68,7 +68,8 @@
                         <Label layoutX="5.0" layoutY="190.0" prefHeight="17.0" prefWidth="79.0" text="Награды"
                                textAlignment="CENTER"/>
                         <CheckBox fx:id="aloneCheckBox" layoutX="5.0" layoutY="715.0" mnemonicParsing="false"
-                                  text="Одинокие" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0"/>
+                                  onAction="#handleIsAnoneCheckbox" text="Одинокие" AnchorPane.leftAnchor="5.0"
+                                  AnchorPane.rightAnchor="5.0"/>
                     </children>
                 </AnchorPane>
             </content>
