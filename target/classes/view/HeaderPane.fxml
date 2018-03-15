@@ -8,7 +8,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane fx:id="headerPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="30.0" xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.module.controllers.HeaderController">
+<AnchorPane fx:id="headerPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="30.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.module.controllers.HeaderController">
     <children>
         <MenuBar prefHeight="25.0" prefWidth="600.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <menus>
@@ -25,7 +25,7 @@
                 </Menu>
                 <Menu mnemonicParsing="false" text="Справочники">
                     <items>
-                        <MenuItem fx:id="addRgvkMenuItem" mnemonicParsing="false" onAction="#handleAddRgvkMenuItem" text="РГВК" />
+                        <MenuItem fx:id="addRgvkMenuItem" mnemonicParsing="false" onAction="#handleAddRgvkMenuItem" text="РГВК" visible="false" />
                         <MenuItem fx:id="addHonorMenuItem" mnemonicParsing="false" onAction="#handleAddHonorMenuItem" text="Награды" />
                         <MenuItem fx:id="addRankMenuItem" mnemonicParsing="false" onAction="#handleAddRankMenuItem" text="Звания" />
                         <MenuItem fx:id="addWoundTypeMenuItem" mnemonicParsing="false" onAction="#handleAddWoundTypeMenuItem" text="Ранения" />

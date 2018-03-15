@@ -15,6 +15,8 @@ Date: 2018-03-15 09:13:48
 
 SET FOREIGN_KEY_CHECKS=0;
 
+USE social_protection;
+
 -- ----------------------------
 -- Table structure for categories
 -- ----------------------------
