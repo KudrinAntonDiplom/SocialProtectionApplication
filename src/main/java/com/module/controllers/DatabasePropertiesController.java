@@ -34,9 +34,14 @@ public class DatabasePropertiesController {
 
     @FXML
     private void handleSavePropertiesButton() throws IOException {
-        String url = serverURLField.getText();
-        String userName = serverUserNameField.getText();
-        String password = serverUserPasswordField.getText();
+//        String url = serverURLField.getText();
+//        String userName = serverUserNameField.getText();
+//        String password = serverUserPasswordField.getText();
+
+        //temp
+        String url = "localhost";
+        String userName = "root";
+        String password = "root";
         final Task task = new Task() {
             @Override
             protected Object call() throws Exception {

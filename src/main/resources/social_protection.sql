@@ -179,7 +179,7 @@ INSERT INTO `honors` VALUES (0x68577A590D034B0E89C4F921BF917314, 'Медаль \
 INSERT INTO `honors` VALUES (0x6D500F1A91614299A9A4CA77470AD113, 'Медаль \"За доблестный труд в Великой Отечественной войне 1941-1945 гг\"');
 INSERT INTO `honors` VALUES (0x993875460E624670A0F39A8F68A449F4, 'Медаль \"За оборону Кавказа\"');
 INSERT INTO `honors` VALUES (0x9D08AF5BE1B845C7BC01316D0B7D3DA7, 'Медаль \"За оборону Ленинграда\"');
-INSERT INTO `honors` VALUES (0xA96F969D4FE84864ABD63402FEE8984D, 'Медаль \"За отвагу\"');
+--INSERT INTO `honors` VALUES (0xA96F969D4FE84864ABD63402FEE8984D, 'Медаль \"За отвагу\"');
 INSERT INTO `honors` VALUES (0xC9DD46BA3E364B4584BC0BD3AF930924, 'Орден Отечественной войны I степени');
 INSERT INTO `honors` VALUES (0xCBCCDCDDD44342BAA3C4C09CB66D4AAC, 'Медаль \"За победу над Германией в Великой Отечественной войне 1941-1945 гг\"\"');
 INSERT INTO `honors` VALUES (0xDFAD9DA36A58409AB9C42A1BE1FA15C4, 'Медаль\"За взятие Кенигсберга\"');
