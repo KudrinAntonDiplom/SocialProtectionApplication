@@ -179,6 +179,25 @@ public class WordDocumentGenerator {
                     }
                 }
 
+                if (veteranEntity.getDocuments().size()>0){
+                    XWPFParagraph documentParagraph = document.createParagraph();
+                    documentParagraph.setAlignment(ParagraphAlignment.LEFT);
+
+                    XWPFRun documentLabel = documentParagraph.createRun();
+                    documentLabel.setFontFamily("Times New Roman");
+                    documentLabel.setFontSize(14);
+                    documentLabel.setText("Документы: ");
+
+                    for (DocumentEntity documentEntity : veteranEntity.getDocuments()){
+                        XWPFRun documentValue = documentParagraph.createRun();
+                        documentValue.setFontFamily("Times New Roman");
+                        documentValue.setFontSize(14);
+                        documentValue.setBold(true);
+                        documentValue.setCapitalized(true);
+                        documentValue.setText(documentEntity.toString());
+                    }
+                }
+
                 /** ---Address Paragraph--- */
                 if (veteranEntity.getAddress() != null) {
                     XWPFParagraph addressParagraph = document.createParagraph();

@@ -33,6 +33,10 @@ public class VeteranDialogDataManager {
         this.veteranEntity.setDateOfBirth(veteranDialogManager.getMainDataPaneController().getDateOfBirthField().getValue());
         this.veteranEntity.setDistrict(veteranDialogManager.getMainDataPaneController().getDistrictField().getValue());
 
+        this.veteranEntity.setBirthRegion(veteranDialogManager.getMainDataPaneController().getBirthRegionField().getText());
+        this.veteranEntity.setBirthTown(veteranDialogManager.getMainDataPaneController().getBirthTownField().getText());
+        this.veteranEntity.setPensionMinistry(veteranDialogManager.getMainDataPaneController().getPensionMinistryField().getText());
+
         this.veteranEntity.setCategory(veteranDialogManager.getMainDataPaneController().getCategoryField().getValue());
         this.veteranEntity.setSubcategory(veteranDialogManager.getMainDataPaneController().getSubcategoryField().getValue());
         this.veteranEntity.setMilitaryRank(veteranDialogManager.getMainDataPaneController().getMilitaryRankField().getValue());
@@ -83,6 +87,10 @@ public class VeteranDialogDataManager {
         veteranDialogManager.getMainDataPaneController().getMiddleNameField().setText(this.veteranEntity.getMiddleName());
         veteranDialogManager.getMainDataPaneController().getDateOfBirthField().setValue(this.veteranEntity.getDateOfBirth());
         veteranDialogManager.getMainDataPaneController().getDistrictField().setValue(this.veteranEntity.getDistrict());
+
+        veteranDialogManager.getMainDataPaneController().getBirthTownField().setText(this.veteranEntity.getBirthTown());
+        veteranDialogManager.getMainDataPaneController().getBirthRegionField().setText(this.veteranEntity.getBirthRegion());
+        veteranDialogManager.getMainDataPaneController().getPensionMinistryField().setText(this.veteranEntity.getPensionMinistry());
 
         veteranDialogManager.getMainDataPaneController().getCategoryField().setValue(this.veteranEntity.getCategory());
         if (this.veteranEntity.getCategory() != null) {

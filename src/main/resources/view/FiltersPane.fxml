@@ -68,19 +68,23 @@
                         <Label layoutX="5.0" layoutY="190.0" prefHeight="17.0" prefWidth="79.0" text="Награды"
                                textAlignment="CENTER"/>
                         <Label layoutX="5.0" layoutY="715.0" prefHeight="40.0" prefWidth="170.0"
-                               text="Министерство выдающиее пенсию" wrapText="true" AnchorPane.leftAnchor="5.0"
+                               text="Комитет" wrapText="true" AnchorPane.leftAnchor="5.0"
                                AnchorPane.rightAnchor="5.0"/>
-                        <CheckComboBox fx:id="ministryGivePension" layoutX="5.0" layoutY="755.0"
+                        <TextField fx:id="comitetFilterField" layoutX="5.0" layoutY="755.0"
                                        AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0"/>
                         <Label layoutX="5.0" layoutY="780.0" prefHeight="17.0" prefWidth="170.0" text="Область рожения" wrapText="true"
                                textAlignment="CENTER"/>
-                        <TextField fx:id="RegionOfBirth" layoutX="5.0" layoutY="797.0"
+                        <TextField fx:id="regionOfBirthFilterField" layoutX="5.0" layoutY="797.0"
                                    AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0"/>
                         <Label layoutX="5.0" layoutY="832.0" prefHeight="17.0" prefWidth="170.0" text="Город рожения" wrapText="true"
                                textAlignment="CENTER"/>
-                        <TextField fx:id="townOfBirth" layoutX="5.0" layoutY="849.0"
+                        <TextField fx:id="townOfBirthFilterField" layoutX="5.0" layoutY="849.0"
                                    AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0"/>
-                        <CheckBox fx:id="aloneCheckBox" layoutX="5.0" layoutY="884.0" mnemonicParsing="false"
+                        <Label layoutX="5.0" layoutY="877.0" prefHeight="17.0" prefWidth="170.0" text="Место работы" wrapText="true"
+                               textAlignment="CENTER"/>
+                        <TextField fx:id="workPlaceFilterField" layoutX="5.0" layoutY="894.0"
+                                   AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0"/>
+                        <CheckBox fx:id="aloneCheckBox" layoutX="5.0" layoutY="939.0" mnemonicParsing="false"
                                   text="Одинокие" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0"/>
                     </children>
                 </AnchorPane>

@@ -128,8 +128,16 @@ public class QueryBuilder {
         this.whereArguments.add("v.village_executive_committee='" + value + "'");
     }
 
+    public void getByRegionOfBirth(String value){
+        this.whereArguments.add("v.birtth_region='" + value +"'");
+    }
+
+    public void getByTownOfBirth(String value){
+        this.whereArguments.add("v.birtth_town='"+ value+"'");
+    }
+
     public void getByWorkOrganization(String value) {
-        this.joinString += " LEFT JOIN workplaces work ON work.veteran_uuid=v.uuid";
+        this.joinString += " LEFT JOIN work_places work ON work.veteran_uuid=v.uuid";
         this.whereArguments.add("work.organization='" + value + "'");
     }
 

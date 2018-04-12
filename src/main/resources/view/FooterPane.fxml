@@ -25,6 +25,8 @@
                         prefHeight="25.0" text="Редактировать"/>
                 <Button fx:id="addVeteranButton" mnemonicParsing="false" onAction="#handleAddVeteran" prefHeight="25.0"
                         text="Добавить"/>
+                <Button fx:id="outVeteranButton" mnemonicParsing="false" onAction="#handleOutVeteran" prefHeight="25.0"
+                        text="Выгрузить карточку"/>
             </buttons>
         </ButtonBar>
         <TextField fx:id="recordsCountField" disable="true" editable="false" layoutX="284.0" layoutY="28.0"

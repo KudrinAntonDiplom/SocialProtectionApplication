@@ -76,6 +76,12 @@ public class MainDataPaneController {
     private TextField villageExecutiveCommitteeField;
     @FXML
     private ComboBox<RgvkEntity> rgvkField;
+    @FXML
+    private TextField birthRegionField;
+    @FXML
+    private TextField birthTownField;
+    @FXML
+    private TextField pensionMinistryField;
 
     private ObservableList<CategoryEntity> categoryData;
 

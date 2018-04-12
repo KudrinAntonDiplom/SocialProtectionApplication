@@ -50,12 +50,12 @@
         <TextField fx:id="burialPlaceField" layoutX="181.0" layoutY="249.0" prefHeight="25.0" prefWidth="180.0" visible="false" AnchorPane.leftAnchor="180.0" AnchorPane.topAnchor="255.0" />
         <ImageView fx:id="imagePhotoView" fitHeight="170.0" fitWidth="140.0" layoutX="586.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="590.0" AnchorPane.topAnchor="15.0" />
         <Label layoutX="392.0" layoutY="220.0" prefHeight="25.0" prefWidth="120.0" text="Район" wrapText="true" AnchorPane.leftAnchor="390.0" AnchorPane.topAnchor="230.0" />
-        <Label layoutX="390.0" layoutY="492.0" text="РГВК" AnchorPane.leftAnchor="390.0" AnchorPane.topAnchor="475.0" />
-      <Label id="regionOfBirth" layoutX="30.0" layoutY="475.0" prefHeight="25.0" prefWidth="148.0" text="Место рождения(Область)" />
-      <Label id="townOfBirth" layoutX="30.0" layoutY="508.0" prefHeight="25.0" prefWidth="148.0" text="Место рождения(Город)" />
-      <TextField fx:id="militarySubdivisionField1" layoutX="180.0" layoutY="475.0" prefHeight="25.0" prefWidth="180.0" />
-      <TextField fx:id="militarySubdivisionField11" layoutX="180.0" layoutY="508.0" prefHeight="25.0" prefWidth="180.0" />
-      <TextField fx:id="militarySubdivisionField111" layoutX="570.0" layoutY="508.0" prefHeight="25.0" prefWidth="180.0" />
-      <Label id="ministryGivesPension" layoutX="390.0" layoutY="501.0" prefHeight="40.0" prefWidth="156.0" text="Министерво выдающее пенсию" wrapText="true" />
+            <Label layoutX="390.0" layoutY="492.0" text="РГВК" AnchorPane.leftAnchor="390.0" AnchorPane.topAnchor="475.0" />
+          <Label layoutX="30.0" layoutY="475.0" prefHeight="25.0" prefWidth="148.0" text="Место рождения(Область)" />
+          <Label layoutX="30.0" layoutY="508.0" prefHeight="25.0" prefWidth="148.0" text="Место рождения(Город)" />
+          <TextField fx:id="birthRegionField" layoutX="180.0" layoutY="475.0" prefHeight="25.0" prefWidth="180.0" />
+          <TextField fx:id="birthTownField" layoutX="180.0" layoutY="508.0" prefHeight="25.0" prefWidth="180.0" />
+          <TextField fx:id="pensionMinistryField" layoutX="570.0" layoutY="508.0" prefHeight="25.0" prefWidth="180.0" />
+          <Label layoutX="390.0" layoutY="501.0" prefHeight="40.0" prefWidth="156.0" text="Комитет" wrapText="true" />
     </children>
 </AnchorPane>

@@ -54,6 +54,14 @@ public class FiltersController {
     private CheckBox isDeadCheckBox;
     @FXML
     private CheckBox aloneCheckBox;
+    @FXML
+    private  TextField comitetFilterField;
+    @FXML
+    private  TextField townOfBirthFilterField;
+    @FXML
+    private  TextField regionOfBirthFilterField;
+    @FXML
+    private  TextField workPlaceFilterField;
 
     @Autowired
     private ConfigurableApplicationContext applicationContext;
@@ -74,6 +82,10 @@ public class FiltersController {
         villageExecutiveCommitteeFilterField.clear();
         regionalExecutiveCommitteeFilterField.clear();
         aloneCheckBox.setSelected(false);
+        comitetFilterField.clear();
+        townOfBirthFilterField.clear();
+        regionOfBirthFilterField.clear();
+        workPlaceFilterField.clear();
         filtersMap.clear();
 
         if (isDeadCheckBox.isSelected())
@@ -137,6 +149,18 @@ public class FiltersController {
         if (!regionalExecutiveCommitteeFilterField.getText().equals("")) {
             filtersMap.put("RegionalExecutiveCommittee", regionalExecutiveCommitteeFilterField.getText());
         }
+        if(!comitetFilterField.getText().equals("")){
+            filtersMap.put("Comitet", comitetFilterField.getText());
+        }
+        if(!workPlaceFilterField.getText().equals("")){
+            filtersMap.put("WorkOrganization", workPlaceFilterField.getText());
+        }
+        if(!regionOfBirthFilterField.getText().equals("")){
+            filtersMap.put("RegionOfBirth", regionOfBirthFilterField.getText());
+        }
+        if(!townOfBirthFilterField.getText().equals("")){
+            filtersMap.put("TownOfBirth", townOfBirthFilterField.getText());
+        }
         if (aloneCheckBox.isSelected()) {
             filtersMap.put("FamilyMembers", String.valueOf(aloneCheckBox.isSelected()));
         }
@@ -168,6 +192,15 @@ public class FiltersController {
                 databaseWorker.getAutoCompleteList("veterans", "regional_executive_committee"));
         TextFields.bindAutoCompletion(marchingOrganizationFilterField,
                 databaseWorker.getAutoCompleteList("veterans", "marching_organization"));
+        TextFields.bindAutoCompletion(regionOfBirthFilterField,
+                databaseWorker.getAutoCompleteList("veterans", "birtth_region"));
+        TextFields.bindAutoCompletion(townOfBirthFilterField,
+                databaseWorker.getAutoCompleteList("veterans", "birtth_town"));
+        TextFields.bindAutoCompletion(workPlaceFilterField,
+                databaseWorker.getAutoCompleteList("work_places", "organization"));
+        //TextFields.bindAutoCompletion(comitetFilterField,
+                //databaseWorker.getAutoCompleteList("veterans","comitet"));
+
 
         districtFilterField.getItems().setAll(databaseWorker.getDistricts());
         honorsFilterField.getItems().setAll(databaseWorker.getHonors());
