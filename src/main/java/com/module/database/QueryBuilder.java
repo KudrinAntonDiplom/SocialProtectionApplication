@@ -46,8 +46,7 @@ public class QueryBuilder {
     }
 
     public void getByFamilyMembers(String value) {
-        this.joinString += " LEFT JOIN family_members fm on v.uuid=fm.veteran_uuid";
-        this.whereArguments.add("fm.relation_degree is null");
+        this.whereArguments.add("v.is_alone='1'");
     }
 
     public void getByFirstName(String value) {
@@ -169,7 +168,7 @@ public class QueryBuilder {
             countQuery = "*";
 
             if (page != -1) {
-                paginator = " LIMIT 50000 OFFSET " + (page * 50000);
+                paginator = " LIMIT 500000 OFFSET " + (page * 500000);
             }
         }
 
