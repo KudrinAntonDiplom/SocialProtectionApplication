@@ -137,9 +137,9 @@ public class FiltersController {
         if (!regionalExecutiveCommitteeFilterField.getText().equals("")) {
             filtersMap.put("RegionalExecutiveCommittee", regionalExecutiveCommitteeFilterField.getText());
         }
-//        if (aloneCheckBox.isSelected()) {
-//            filtersMap.put("FamilyMembers", String.valueOf(aloneCheckBox.isSelected()));
-//        }
+        if (aloneCheckBox.isSelected()) {
+            filtersMap.put("FamilyMembers", String.valueOf(aloneCheckBox.isSelected()));
+        }
 
         return filtersMap;
     }
@@ -150,11 +150,6 @@ public class FiltersController {
         applicationContext.getBean(FooterController.class).setPaginationProperties();
     }
 
-    @FXML
-    private void handleIsAnoneCheckbox() {
-        filtersMap.put("IsAlone", String.valueOf(aloneCheckBox.isSelected()));
-        applicationContext.getBean(FooterController.class).setPaginationProperties();
-    }
 
     @FXML
     private void initialize() {

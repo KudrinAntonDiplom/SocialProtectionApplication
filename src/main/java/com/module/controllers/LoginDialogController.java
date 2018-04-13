@@ -37,17 +37,8 @@ public class LoginDialogController {
 
     public void setLoginAction() throws Exception {
         try {
-//            final String userName = inputDistrictField.getText().trim();
-//            final String password = inputPasswordField.getText().trim();
-
-            //auto authorisation
-            final String userName = "Admin";
-            final String password = "9l9OSJ";
-
-            //auto volk
-//            final String userName = "Prokopchik500";
-//            final String password = "hBnJ7y";
-
+            final String userName = inputDistrictField.getText().trim();
+            final String password = inputPasswordField.getText().trim();
 
             Authentication request = new UsernamePasswordAuthenticationToken(userName, password);
             Authentication result = authManager.authenticate(request);
