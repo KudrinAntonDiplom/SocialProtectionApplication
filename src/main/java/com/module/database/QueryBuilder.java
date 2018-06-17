@@ -49,6 +49,10 @@ public class QueryBuilder {
         this.whereArguments.add("v.is_alone='1'");
     }
 
+    public void getByDeadOnly(String value) {
+        this.whereArguments.add("v.is_dead='1'");
+    }
+
     public void getByFirstName(String value) {
         this.whereArguments.add("v.first_name='" + value + "'");
     }
@@ -135,6 +139,11 @@ public class QueryBuilder {
     public void getByWoundType(String value) {
         this.joinString += " LEFT JOIN veteran_wounds vw ON vw.veteran_uuid=v.uuid LEFT JOIN wound_types wt ON vw.type_uuid=wt.uuid";
         this.whereArguments.add("wt.type='" + value + "'");
+    }
+
+    public void getByWoundDisability(String value) {
+        this.joinString += " LEFT JOIN veteran_wounds vw ON vw.veteran_uuid=v.uuid LEFT JOIN wound_disabilities wd ON vw.disability_uuid=wd.uuid";
+        this.whereArguments.add("wd.disability='" + value + "'");
     }
 
     public String prepareSelectQuery(Map<String, String> filters, int page) {

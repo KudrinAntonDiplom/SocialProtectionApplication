@@ -46,7 +46,7 @@ public class NewWoundDisabilityDialogController {
         existsWoundDisabilitiesTable.setItems(woundDisabilityData);
 
         existsWoundDisabilitiesTable.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
-            if (newSelection != null) {
+            if (newSelection != null && databaseWorker.isAdmin()) {
                 editButton.setDisable(false);
                 deleteButton.setDisable(false);
             } else {
@@ -55,7 +55,7 @@ public class NewWoundDisabilityDialogController {
             }
         });
         newWoundDisabilityTextField.textProperty().addListener((observable, oldValue, newValue) -> {
-            if (!newValue.trim().isEmpty())
+            if (!newValue.trim().isEmpty() && databaseWorker.isAdmin())
                 saveButton.setDisable(false);
             else saveButton.setDisable(true);
         });

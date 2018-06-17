@@ -5,6 +5,7 @@
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SeparatorMenuItem?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
@@ -16,7 +17,7 @@
                     <items>
                         <MenuItem fx:id="saveToWord" mnemonicParsing="false" onAction="#handleSaveToWord" text="Word" />
                         <MenuItem fx:id="exportToExcel" mnemonicParsing="false" onAction="#handleExportInExcelMenuItem" text="Excel" />
-                  <Menu mnemonicParsing="false" text="Unspecified Menu">
+                  <Menu mnemonicParsing="false" text="Unspecified Menu" visible="false">
                     <items>
                       <MenuItem mnemonicParsing="false" text="Action 1" />
                     </items>
@@ -30,6 +31,13 @@
                         <MenuItem fx:id="addRankMenuItem" mnemonicParsing="false" onAction="#handleAddRankMenuItem" text="Звания" />
                         <MenuItem fx:id="addWoundTypeMenuItem" mnemonicParsing="false" onAction="#handleAddWoundTypeMenuItem" text="Ранения" />
                         <MenuItem fx:id="addWoundDisabilityMenuItem" mnemonicParsing="false" onAction="#handleAddWoundDisabilityMenuItem" text="Инвалидности" />
+                  <SeparatorMenuItem fx:id="refSeparator1" mnemonicParsing="false" />
+                        <MenuItem fx:id="exportHonors" mnemonicParsing="false" onAction="#handleExportHonors" text="Экспорт наград" />
+                        <MenuItem fx:id="exportRanks" mnemonicParsing="false" onAction="#handleExportRanks" text="Экспорт званий" />
+                        <MenuItem fx:id="exportWoundTypes" mnemonicParsing="false" onAction="#handleExportWoundTypes" text="Экспорт ранений" />
+                        <MenuItem fx:id="exportWoundDisabilities" mnemonicParsing="false" onAction="#handleExportWoundDisabilities" text="Экспорт инвалидностей" />
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                        <MenuItem fx:id="importDir" mnemonicParsing="false" onAction="#handleImportDir" text="Импорт справочников" />
                     </items>
                 </Menu>
                 <Menu mnemonicParsing="false" text="База данных">

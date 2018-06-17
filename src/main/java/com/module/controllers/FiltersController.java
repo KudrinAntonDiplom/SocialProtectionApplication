@@ -6,6 +6,7 @@ import com.module.model.entity.DistrictEntity;
 import com.module.model.entity.HonorEntity;
 import com.module.model.entity.SubcategoryEntity;
 import javafx.collections.ListChangeListener;
+import javafx.collections.transformation.SortedList;
 import javafx.fxml.FXML;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextField;
@@ -15,10 +16,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.stereotype.Component;
 
-import java.util.LinkedHashMap;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
+import java.text.Collator;
+import java.util.*;
 
 @Component
 public class FiltersController {
@@ -54,6 +53,8 @@ public class FiltersController {
     private CheckBox isDeadCheckBox;
     @FXML
     private CheckBox aloneCheckBox;
+    @FXML
+    private CheckBox deadCheckBox;
 
     @Autowired
     private ConfigurableApplicationContext applicationContext;
@@ -74,6 +75,7 @@ public class FiltersController {
         villageExecutiveCommitteeFilterField.clear();
         regionalExecutiveCommitteeFilterField.clear();
         aloneCheckBox.setSelected(false);
+        deadCheckBox.setSelected(false);
         filtersMap.clear();
 
         if (isDeadCheckBox.isSelected())
@@ -140,6 +142,9 @@ public class FiltersController {
         if (aloneCheckBox.isSelected()) {
             filtersMap.put("FamilyMembers", String.valueOf(aloneCheckBox.isSelected()));
         }
+        if (deadCheckBox.isSelected()) {
+            filtersMap.put("DeadOnly", String.valueOf(deadCheckBox.isSelected()));
+        }
 
         return filtersMap;
     }
@@ -150,6 +155,17 @@ public class FiltersController {
         applicationContext.getBean(FooterController.class).setPaginationProperties();
     }
 
+    private static Comparator<DistrictEntity> getComparator() {
+        return new Comparator<DistrictEntity>() {
+            @Override
+            public int compare(DistrictEntity o1, DistrictEntity o2) {
+                String name = o1.getName();
+                String name2 = o2.getName();
+
+                return name.compareTo(name2);
+            }
+        };
+    }
 
     @FXML
     private void initialize() {
