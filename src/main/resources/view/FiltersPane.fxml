@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" ?>
 
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Label?>
@@ -38,6 +38,23 @@
                         <Label layoutX="5.0" layoutY="508.0" prefHeight="40.0" prefWidth="170.0" text="Районный исполнительный комитет" wrapText="true" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" />
                         <Label layoutX="5.0" layoutY="656.0" prefHeight="24.0" prefWidth="170.0" text="Шествующая организация" textAlignment="CENTER" wrapText="true" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" />
                         <Label layoutX="5.0" layoutY="190.0" prefHeight="17.0" prefWidth="79.0" text="Награды" textAlignment="CENTER" />
+                      <Label layoutX="5.0" layoutY="715.0" prefHeight="40.0" prefWidth="170.0"
+                               text="Комитет" wrapText="true" AnchorPane.leftAnchor="5.0"
+                               AnchorPane.rightAnchor="5.0"/>
+                        <TextField fx:id="comitetFilterField" layoutX="5.0" layoutY="755.0"
+                                       AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0"/>
+                        <Label layoutX="5.0" layoutY="780.0" prefHeight="17.0" prefWidth="170.0" text="Область рожения" wrapText="true"
+                               textAlignment="CENTER"/>
+                        <TextField fx:id="regionOfBirthFilterField" layoutX="5.0" layoutY="797.0"
+                                   AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0"/>
+                        <Label layoutX="5.0" layoutY="832.0" prefHeight="17.0" prefWidth="170.0" text="Город рожения" wrapText="true"
+                               textAlignment="CENTER"/>
+                        <TextField fx:id="townOfBirthFilterField" layoutX="5.0" layoutY="849.0"
+                                   AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0"/>
+                        <Label layoutX="5.0" layoutY="877.0" prefHeight="17.0" prefWidth="170.0" text="Место работы" wrapText="true"
+                               textAlignment="CENTER"/>
+                        <TextField fx:id="workPlaceFilterField" layoutX="5.0" layoutY="894.0"
+                                   AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0"/>
                         <CheckBox fx:id="aloneCheckBox" layoutX="5.0" layoutY="715.0" mnemonicParsing="false" text="Одинокие" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" />
                         <CheckBox fx:id="deadCheckBox" layoutX="6.0" layoutY="744.0" mnemonicParsing="false" prefWidth="174.0" text="Умершие (требуется отображение умерших)" wrapText="true" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" />
                     </children>

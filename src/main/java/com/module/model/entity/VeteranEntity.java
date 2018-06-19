@@ -105,6 +105,15 @@ public class VeteranEntity {
     @Column(name = "subdivision")
     private String subdivision;
 
+    @Column(name = "birtth_region")
+    private  String birthRegion;
+
+    @Column(name= "birtth_town")
+    private  String birthTown;
+
+    @Column(name= "pension_ministry")
+    private  String pensionMinistry;
+
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "rgvk_uuid")
     private RgvkEntity rgvk;
@@ -377,6 +386,24 @@ public class VeteranEntity {
     public void setSubdivision(String subdivision) {
         this.subdivision = subdivision;
     }
+
+    public  void setBirthRegion(String region) {this.birthRegion = region;}
+
+    public String getBirthRegion() {return birthRegion; }
+
+    public void setBirthTown(String town)
+    {
+        this.birthTown = town;
+    }
+
+    public String getBirthTown() {return birthTown;}
+
+    public  void setPensionMinistry(String ministry)
+    {
+        this.pensionMinistry= ministry;
+    }
+
+    public String getPensionMinistry(){return pensionMinistry;}
 
     public UUID getUuid() {
         return uuid;

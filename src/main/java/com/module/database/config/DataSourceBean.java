@@ -23,7 +23,8 @@ public class DataSourceBean {
         Properties prop = new Properties();
 
         try {
-            InputStream input = new FileInputStream(System.getProperty("user.home") + "/Social Protection Module/database.properties");
+            //InputStream input = new FileInputStream(System.getProperty("user.home") + "/Social Protection Module/database.properties");
+            InputStream input = new FileInputStream("C:/Users/vergi/OneDrive/Документы/Diplom/SocialProtectionApplication/config/database.properties");
             prop.load(input);
 
         } catch (IOException ex) {

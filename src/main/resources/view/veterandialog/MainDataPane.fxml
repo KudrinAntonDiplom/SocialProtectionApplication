@@ -1,15 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.CheckBox?>
-<?import javafx.scene.control.ComboBox?>
-<?import javafx.scene.control.DatePicker?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextField?>
+<?import java.lang.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.control.*?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.*?>
 
-<AnchorPane fx:id="mainDataPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="563.0" minWidth="-Infinity" prefHeight="563.0" prefWidth="781.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.module.controllers.veterandialog.MainDataPaneController">
+<AnchorPane fx:id="mainDataPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="564.0" prefWidth="782.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.module.controllers.veterandialog.MainDataPaneController">
     <children>
         <Label layoutX="30.0" layoutY="335.0" prefHeight="25.0" prefWidth="100.0" text="Подкатегория" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="335.0" />
         <Label layoutX="386.0" layoutY="411.0" prefHeight="40.0" prefWidth="156.0" text="Сельский исполнительный комитет" textAlignment="RIGHT" wrapText="true" AnchorPane.leftAnchor="390.0" AnchorPane.topAnchor="400.0" />
@@ -39,7 +36,7 @@
         <ComboBox fx:id="subcategoryField" layoutX="180.0" layoutY="335.0" prefHeight="25.0" prefWidth="180.0" AnchorPane.leftAnchor="180.0" AnchorPane.topAnchor="335.0" />
         <ComboBox fx:id="militaryRankField" layoutX="180.0" layoutY="375.0" prefHeight="25.0" prefWidth="180.0" AnchorPane.leftAnchor="180.0" AnchorPane.topAnchor="370.0" />
         <TextField fx:id="positionField" layoutX="180.0" layoutY="414.0" prefHeight="25.0" prefWidth="180.0" AnchorPane.leftAnchor="180.0" AnchorPane.topAnchor="405.0" />
-        <TextField fx:id="militarySubdivisionField" layoutX="180.0" layoutY="453.0" prefHeight="25.0" prefWidth="180.0" AnchorPane.leftAnchor="180.0" AnchorPane.topAnchor="440.0" />
+        <TextField fx:id="militarySubdivisionField" layoutX="180.0" layoutY="440.0" prefHeight="25.0" prefWidth="180.0" AnchorPane.leftAnchor="180.0" AnchorPane.topAnchor="440.0" />
         <Button fx:id="loadPhotoImage" layoutX="566.0" layoutY="178.0" mnemonicParsing="false" onAction="#loadVeteranPhoto" prefHeight="25.0" prefWidth="180.0" text="Загрузить фотографию" AnchorPane.leftAnchor="570.0" AnchorPane.topAnchor="190.0" />
         <ComboBox fx:id="districtField" layoutX="566.0" layoutY="220.0" prefHeight="25.0" prefWidth="180.0" AnchorPane.leftAnchor="570.0" AnchorPane.topAnchor="230.0" />
         <TextField fx:id="registrationAddressField" layoutX="566.0" layoutY="261.0" prefHeight="25.0" prefWidth="180.0" AnchorPane.leftAnchor="570.0" AnchorPane.topAnchor="265.0" />
@@ -54,8 +51,12 @@
         <ImageView fx:id="imagePhotoView" fitHeight="170.0" fitWidth="140.0" layoutX="586.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="590.0" AnchorPane.topAnchor="15.0" />
         <Label layoutX="392.0" layoutY="220.0" prefHeight="25.0" prefWidth="120.0" text="Район" wrapText="true" AnchorPane.leftAnchor="390.0" AnchorPane.topAnchor="230.0" />
         <Label layoutX="391.0" layoutY="479.0" text="РГВК" visible="false" AnchorPane.leftAnchor="391.0" AnchorPane.topAnchor="479.0" />
-      <TextField fx:id="bornAddressField" layoutX="570.0" layoutY="475.0" prefHeight="25.0" prefWidth="180.0" />
-      <Label layoutX="391.0" layoutY="479.0" text="Место рождения" />
+      <Label layoutX="30.0" layoutY="475.0" prefHeight="25.0" prefWidth="148.0" text="Место рождения(Область)" />
+          <Label layoutX="30.0" layoutY="508.0" prefHeight="25.0" prefWidth="148.0" text="Место рождения(Город)" />
+      <TextField fx:id="birthRegionField" layoutX="180.0" layoutY="475.0" prefHeight="25.0" prefWidth="180.0" />
+          <TextField fx:id="birthTownField" layoutX="180.0" layoutY="508.0" prefHeight="25.0" prefWidth="180.0" />
+          <TextField fx:id="pensionMinistryField" layoutX="570.0" layoutY="508.0" prefHeight="25.0" prefWidth="180.0" />
+          <Label layoutX="390.0" layoutY="501.0" prefHeight="40.0" prefWidth="156.0" text="Комитет" wrapText="true" />
       <CheckBox fx:id="isAloneCheckBox" focusTraversable="false" layoutX="31.0" layoutY="479.0" mnemonicParsing="false" text="Одинокий" />
     </children>
 </AnchorPane>

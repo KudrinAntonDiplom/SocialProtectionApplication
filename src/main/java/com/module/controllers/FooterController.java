@@ -1,5 +1,7 @@
 package com.module.controllers;
 
+import com.itextpdf.text.*;
+import com.itextpdf.text.pdf.PdfWriter;
 import com.module.controllers.veterandialog.VeteranDialogManager;
 import com.module.database.QueryBuilder;
 import com.module.helpers.CustomAlertCreator;
@@ -21,6 +23,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.stereotype.Component;
 
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Optional;
 
@@ -118,6 +122,42 @@ public class FooterController {
                 rootManager.getMainTableController().refreshTable();
             }
             setPaginationProperties();
+        }
+    }
+
+    @FXML
+    private void handleOutVeteran(){
+        VeteranEntity veteranEntity = rootManager.getMainTableController().getSelectedVeteran();
+        if(veteranEntity !=null){
+            Document document = new Document(PageSize.A4, 50, 50, 50, 50);
+            try {
+                PdfWriter writer = PdfWriter.getInstance(document,  new FileOutputStream("D:\\Itextpdf.pdf"));
+                document.open();
+                List l = new List(false, false, 10);
+                l.add("1. Фамилия Имя Отчество " + veteranEntity.getSecondName() + veteranEntity.getFirstName()  + veteranEntity.getMiddleName());
+                l.add("2. Имя " + veteranEntity.getFirstName());
+                l.add("3. Отчество " + veteranEntity.getMiddleName());
+                l.add("2. Дата и место рождения " + veteranEntity.getDateOfBirth() + veteranEntity.getBirthRegion()+ veteranEntity.getBirthTown());
+                l.add("3. Воинское звание " + veteranEntity.getMilitaryRank());
+                l.add("4. Военный билет" + veteranEntity.getMilitaryTerms());
+                l.add("5. Перериод и место прохождения службы в ДРА, в/зв, должность");
+                l.add(veteranEntity.getMilitaryTerms().toString()+ veteranEntity.getMilitaryRank() + veteranEntity.getSubdivision());
+                if(veteranEntity.getWounds().isEmpty()){
+                    l.add("6.Ранений нет");
+                }else{
+                    l.add("6. Раненния" + veteranEntity.getWounds().toString());
+                }
+                l.add("7. Награды" + veteranEntity.getVeteranHonors().toString());
+                l.add("8. Домошний адресс" + veteranEntity.getAddress());
+                l.add("9. Телефон" + veteranEntity.getPhoneNumber());
+                l.add("10. Места работы" + veteranEntity.getWorkPlaces().toString());
+                document.add(l);
+                document.close();
+            } catch (DocumentException e) {
+                e.printStackTrace();
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
         }
     }
 
