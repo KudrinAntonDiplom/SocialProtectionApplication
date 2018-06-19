@@ -9,7 +9,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane fx:id="mainDataPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="563.0" prefWidth="781.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.module.controllers.veterandialog.MainDataPaneController">
+<AnchorPane fx:id="mainDataPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="563.0" minWidth="-Infinity" prefHeight="563.0" prefWidth="781.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.module.controllers.veterandialog.MainDataPaneController">
     <children>
         <Label layoutX="30.0" layoutY="335.0" prefHeight="25.0" prefWidth="100.0" text="Подкатегория" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="335.0" />
         <Label layoutX="386.0" layoutY="411.0" prefHeight="40.0" prefWidth="156.0" text="Сельский исполнительный комитет" textAlignment="RIGHT" wrapText="true" AnchorPane.leftAnchor="390.0" AnchorPane.topAnchor="400.0" />
@@ -18,7 +18,7 @@
         <Label layoutX="392.0" layoutY="335.0" prefHeight="25.0" prefWidth="120.0" text="Номер телефона" AnchorPane.leftAnchor="390.0" AnchorPane.topAnchor="335.0" />
         <Label layoutX="392.0" layoutY="261.0" prefHeight="25.0" prefWidth="120.0" text="Адрес регистрации" wrapText="true" AnchorPane.leftAnchor="390.0" AnchorPane.topAnchor="265.0" />
         <Label layoutX="31.0" layoutY="414.0" prefHeight="25.0" prefWidth="128.0" text="Воинская должность" textAlignment="RIGHT" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="405.0" />
-        <Label layoutX="390.0" layoutY="453.0" prefHeight="25.0" prefWidth="148.0" text="Шествующая организация" textAlignment="RIGHT" wrapText="true" AnchorPane.leftAnchor="390.0" AnchorPane.topAnchor="440.0" />
+        <Label layoutX="390.0" layoutY="453.0" prefHeight="25.0" prefWidth="164.0" text="Шевствующая организация" textAlignment="RIGHT" wrapText="true" AnchorPane.leftAnchor="390.0" AnchorPane.topAnchor="440.0" />
         <Label fx:id="dateOfDeathLabel" layoutX="93.0" layoutY="220.0" prefHeight="25.0" prefWidth="74.0" text="Дата смерти" visible="false" />
         <Label fx:id="burialPlaceLabel" layoutX="52.0" layoutY="261.0" prefHeight="25.0" prefWidth="113.0" text="Место захоронения" visible="false" />
         <Label layoutX="32.0" layoutY="24.0" prefHeight="25.0" prefWidth="90.0" text="Номер Дела" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="25.0" />
@@ -48,14 +48,14 @@
         <TextField fx:id="regionalExecutiveCommitteeField" layoutX="566.0" layoutY="374.0" prefHeight="25.0" prefWidth="180.0" AnchorPane.leftAnchor="570.0" AnchorPane.topAnchor="370.0" />
         <TextField fx:id="villageExecutiveCommitteeField" layoutX="566.0" layoutY="414.0" prefHeight="25.0" prefWidth="180.0" AnchorPane.leftAnchor="570.0" AnchorPane.topAnchor="405.0" />
         <TextField fx:id="marchingOrganizationField" layoutX="566.0" layoutY="453.0" prefHeight="25.0" prefWidth="180.0" AnchorPane.leftAnchor="570.0" AnchorPane.topAnchor="440.0" />
-        <ComboBox fx:id="rgvkField" layoutX="570.0" layoutY="472.0" prefHeight="25.0" prefWidth="180.0" AnchorPane.leftAnchor="570.0" AnchorPane.topAnchor="475.0" />
+        <ComboBox fx:id="rgvkField" layoutX="570.0" layoutY="472.0" prefHeight="25.0" prefWidth="180.0" visible="false" AnchorPane.leftAnchor="570.0" AnchorPane.topAnchor="475.0" />
         <DatePicker fx:id="dateOfDeathField" layoutX="181.0" layoutY="220.0" prefHeight="25.0" prefWidth="180.0" visible="false" AnchorPane.leftAnchor="180.0" AnchorPane.topAnchor="220.0" />
         <TextField fx:id="burialPlaceField" layoutX="181.0" layoutY="249.0" prefHeight="25.0" prefWidth="180.0" visible="false" AnchorPane.leftAnchor="180.0" AnchorPane.topAnchor="255.0" />
         <ImageView fx:id="imagePhotoView" fitHeight="170.0" fitWidth="140.0" layoutX="586.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="590.0" AnchorPane.topAnchor="15.0" />
         <Label layoutX="392.0" layoutY="220.0" prefHeight="25.0" prefWidth="120.0" text="Район" wrapText="true" AnchorPane.leftAnchor="390.0" AnchorPane.topAnchor="230.0" />
-        <Label layoutX="391.0" layoutY="479.0" text="РГВК" AnchorPane.leftAnchor="391.0" AnchorPane.topAnchor="479.0" />
-      <TextField fx:id="bornAddressField" layoutX="570.0" layoutY="509.0" prefHeight="25.0" prefWidth="180.0" />
-      <Label layoutX="391.0" layoutY="513.0" text="Место рождения" />
+        <Label layoutX="391.0" layoutY="479.0" text="РГВК" visible="false" AnchorPane.leftAnchor="391.0" AnchorPane.topAnchor="479.0" />
+      <TextField fx:id="bornAddressField" layoutX="570.0" layoutY="475.0" prefHeight="25.0" prefWidth="180.0" />
+      <Label layoutX="391.0" layoutY="479.0" text="Место рождения" />
       <CheckBox fx:id="isAloneCheckBox" focusTraversable="false" layoutX="31.0" layoutY="479.0" mnemonicParsing="false" text="Одинокий" />
     </children>
 </AnchorPane>

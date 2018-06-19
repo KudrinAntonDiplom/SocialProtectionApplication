@@ -9,7 +9,7 @@
     <children>
         <TableView fx:id="mainTable" layoutX="20.0" layoutY="20.0" maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" tableMenuButtonVisible="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <columns>
-                <TableColumn fx:id="caseNumberColumn" prefWidth="80" text="Номер Дела" />
+                <TableColumn fx:id="caseNumberColumn" prefWidth="80" sortType="DESCENDING" text="Номер Дела" />
                 <TableColumn fx:id="militaryRankColumn" prefWidth="120.0" text="Воинское звание" />
                 <TableColumn fx:id="lastNameColumn" prefWidth="75" text="Фамилия" />
                 <TableColumn fx:id="firstNameColumn" prefWidth="75" text="Имя" />

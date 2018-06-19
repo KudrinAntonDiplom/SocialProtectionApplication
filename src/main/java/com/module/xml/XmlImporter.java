@@ -2,6 +2,8 @@ package com.module.xml;
 
 import com.module.database.DatabaseWorker;
 import com.module.model.entity.*;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
@@ -87,5 +89,43 @@ public class XmlImporter {
 
 
         return veteran;
+    }
+
+    public static void importDirData(DatabaseWorker databaseWorker, DatabaseChecker databaseChecker, File file) {
+        try {
+            JAXBContext jaxbContext = JAXBContext.newInstance(VeteransExchange.class);
+
+            Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
+            VeteransExchange woundExchange = (VeteransExchange) jaxbUnmarshaller.unmarshal(file);
+
+            for (WoundTypeEntity wound : woundExchange.getWoundTypes()) {
+
+                if (wound != null) {
+                    databaseWorker.saveWoundType(wound);
+                }
+            }
+            for (HonorEntity honor: woundExchange.getHonors()) {
+
+                if (honor != null) {
+                    databaseWorker.saveHonor(honor);
+                }
+            }
+            for (WoundDisabilityEntity woundDis: woundExchange.getWoundDisabilities()) {
+
+                if (woundDis != null) {
+                    databaseWorker.saveWoundDisability(woundDis);
+                }
+            }
+            for (RankEntity rank: woundExchange.getRanks()) {
+
+                if (rank != null) {
+                    databaseWorker.saveRank(rank);
+                }
+            }
+
+            System.out.println("Done");
+        } catch (JAXBException e) {
+            e.printStackTrace();
+        }
     }
 }

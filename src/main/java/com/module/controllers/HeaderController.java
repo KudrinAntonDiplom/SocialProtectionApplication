@@ -8,19 +8,14 @@ import com.module.database.QueryBuilder;
 import com.module.helpers.FileLoader;
 import com.module.helpers.WordDocumentGenerator;
 import com.module.model.entity.VeteranEntity;
-import com.module.xml.DatabaseChecker;
-import com.module.xml.VeteransExchange;
-import com.module.xml.XmlExporter;
-import com.module.xml.XmlImporter;
+import com.module.xml.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.concurrent.Task;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -49,6 +44,16 @@ public class HeaderController {
     private Button searchButton;
     @FXML
     private TextField searchTextField;
+    @FXML
+    private MenuItem exportHonors;
+    @FXML
+    private MenuItem exportRanks;
+    @FXML
+    private MenuItem exportWoundTypes;
+    @FXML
+    private MenuItem exportWoundDisabilities;
+    @FXML
+    private SeparatorMenuItem refSeparator1;
 
     private Stage getRootManagerPrimaryStage() {
         return springContext.getBean(RootManager.class).getPrimaryStage();
@@ -218,6 +223,95 @@ public class HeaderController {
     }
 
     @FXML
+    private void handleExportWoundTypes() throws IOException {
+        File file = FileLoader.saveXML();
+        if (file != null) {
+            final Task task = new Task() {
+                @Override
+                protected Object call() throws Exception {
+                    VeteransExchange woundExchange = new VeteransExchange();
+                    woundExchange.setWoundTypes(databaseWorker.getWoundTypes());
+                    XmlExporter.exportDatabaseData(woundExchange, file);
+                    return null;
+                }
+            };
+            ProgressController progressController = new ProgressController();
+            progressController.showProgressBar(getRootManagerPrimaryStage(), task);
+        }
+    }
+
+    @FXML
+    private void handleExportHonors() throws IOException {
+        File file = FileLoader.saveXML();
+        if (file != null) {
+            final Task task = new Task() {
+                @Override
+                protected Object call() throws Exception {
+                    VeteransExchange honorsExchange = new VeteransExchange();
+                    honorsExchange.setHonors(databaseWorker.getHonors());
+                    XmlExporter.exportDatabaseData(honorsExchange, file);
+                    return null;
+                }
+            };
+            ProgressController progressController = new ProgressController();
+            progressController.showProgressBar(getRootManagerPrimaryStage(), task);
+        }
+    }
+
+    @FXML
+    private void handleExportWoundDisabilities() throws IOException {
+        File file = FileLoader.saveXML();
+        if (file != null) {
+            final Task task = new Task() {
+                @Override
+                protected Object call() throws Exception {
+                    VeteransExchange woundsExchange = new VeteransExchange();
+                    woundsExchange.setWoundDisabilities(databaseWorker.getWoundDisabilities());
+                    XmlExporter.exportDatabaseData(woundsExchange, file);
+                    return null;
+                }
+            };
+            ProgressController progressController = new ProgressController();
+            progressController.showProgressBar(getRootManagerPrimaryStage(), task);
+        }
+    }
+
+    @FXML
+    private void handleExportRanks() throws IOException {
+        File file = FileLoader.saveXML();
+        if (file != null) {
+            final Task task = new Task() {
+                @Override
+                protected Object call() throws Exception {
+                    VeteransExchange ranksExchange = new VeteransExchange();
+                    ranksExchange.setRanks(databaseWorker.getRanks());
+                    XmlExporter.exportDatabaseData(ranksExchange, file);
+                    return null;
+                }
+            };
+            ProgressController progressController = new ProgressController();
+            progressController.showProgressBar(getRootManagerPrimaryStage(), task);
+        }
+    }
+
+    @FXML
+    private void handleImportDir() throws IOException {
+        File file = FileLoader.openXML();
+        if (file != null) {
+            final Task task = new Task() {
+                @Override
+                protected Object call() throws Exception {
+                    XmlImporter.importDirData(databaseWorker, databaseChecker, file);
+                    return null;
+                }
+            };
+            ProgressController progressController = new ProgressController();
+            progressController.showProgressBar(getRootManagerPrimaryStage(), task);
+        }
+        springContext.getBean(FooterController.class).setPaginationProperties();
+    }
+
+    @FXML
     private void handleSaveToWord() {
         VeteranEntity veteranEntity = springContext.getBean(RootManager.class).getMainTableController().getSelectedVeteran();
         if (veteranEntity != null)
@@ -238,6 +332,11 @@ public class HeaderController {
 
     @FXML
     private void initialize() {
+        exportHonors.setVisible(databaseWorker.isAdmin());
+        exportRanks.setVisible(databaseWorker.isAdmin());
+        exportWoundDisabilities.setVisible(databaseWorker.isAdmin());
+        exportWoundTypes.setVisible(databaseWorker.isAdmin());
+        refSeparator1.setVisible(databaseWorker.isAdmin());
         List<String> list = new LinkedList<>();
         list.add("Номер дела");
         list.add("Фамилия");

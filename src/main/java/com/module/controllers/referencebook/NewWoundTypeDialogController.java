@@ -1,23 +1,35 @@
 package com.module.controllers.referencebook;
 
+import com.module.controllers.FooterController;
+import com.module.controllers.ProgressController;
+import com.module.controllers.RootManager;
 import com.module.database.DatabaseWorker;
 import com.module.helpers.CustomAlertCreator;
+import com.module.helpers.FileLoader;
 import com.module.model.entity.WoundTypeEntity;
+import com.module.xml.DatabaseChecker;
+import com.module.xml.VeteransExchange;
+import com.module.xml.XmlExporter;
+import com.module.xml.XmlImporter;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.concurrent.Task;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import lombok.Data;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.stereotype.Component;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.Optional;
 
 @Data
 @Component
 public class NewWoundTypeDialogController {
-
     @FXML
     private TableView<WoundTypeEntity> existsWoundTypesTable;
     @FXML
@@ -33,6 +45,8 @@ public class NewWoundTypeDialogController {
 
     private DatabaseWorker databaseWorker;
 
+    private DatabaseChecker databaseChecker;
+
     private ObservableList<WoundTypeEntity> woundTypeData = FXCollections.observableArrayList();
 
     private Stage dialogStage;
@@ -46,7 +60,7 @@ public class NewWoundTypeDialogController {
         existsWoundTypesTable.setItems(woundTypeData);
 
         existsWoundTypesTable.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
-            if (newSelection != null) {
+            if (newSelection != null && databaseWorker.isAdmin()) {
                 editButton.setDisable(false);
                 deleteButton.setDisable(false);
             } else {
@@ -55,7 +69,7 @@ public class NewWoundTypeDialogController {
             }
         });
         newWoundTypeTextField.textProperty().addListener((observable, oldValue, newValue) -> {
-            if (!newValue.trim().isEmpty())
+            if (!newValue.trim().isEmpty() && databaseWorker.isAdmin())
                 saveButton.setDisable(false);
             else saveButton.setDisable(true);
         });

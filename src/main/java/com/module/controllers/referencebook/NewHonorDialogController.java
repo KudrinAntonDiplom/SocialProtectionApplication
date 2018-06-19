@@ -40,13 +40,19 @@ public class NewHonorDialogController {
     private HonorEntity selectedItem;
     private int selectedIndex;
 
+    public void myMeth() {
+        saveButton.setVisible(databaseWorker.isAdmin());
+    }
+
+
     @FXML
     public void initialize() {
         honorsColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
         existsHonorsTable.setItems(honorData);
 
+
         existsHonorsTable.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
-            if (newSelection != null) {
+            if (newSelection != null && databaseWorker.isAdmin()) {
                 editButton.setDisable(false);
                 deleteButton.setDisable(false);
             } else {
@@ -55,7 +61,7 @@ public class NewHonorDialogController {
             }
         });
         newHonorTextField.textProperty().addListener((observable, oldValue, newValue) -> {
-            if (!newValue.trim().isEmpty())
+            if (!newValue.trim().isEmpty() && databaseWorker.isAdmin())
                 saveButton.setDisable(false);
             else saveButton.setDisable(true);
         });
