@@ -1,51 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<AnchorPane xmlns:fx="http://javafx.com/fxml/1" fx:id="headerPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
-            prefHeight="30.0" xmlns="http://javafx.com/javafx/8.0.111"
-            fx:controller="com.module.controllers.HeaderController">
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane fx:id="headerPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="30.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.module.controllers.HeaderController">
     <children>
-        <MenuBar prefHeight="25.0" prefWidth="600.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="0.0"
-                 AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <MenuBar prefHeight="25.0" prefWidth="600.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <menus>
                 <Menu mnemonicParsing="false" text="Сохранить">
                     <items>
-                        <MenuItem fx:id="saveToWord" mnemonicParsing="false" onAction="#handleSaveToWord" text="Word"/>
-                        <MenuItem fx:id="exportToExcel" mnemonicParsing="false" onAction="#handleExportInExcelMenuItem"
-                                  text="Excel"/>
+                        <MenuItem fx:id="saveToWord" mnemonicParsing="false" onAction="#handleSaveToWord" text="Word" />
+                        <MenuItem fx:id="exportToExcel" mnemonicParsing="false" onAction="#handleExportInExcelMenuItem" text="Excel" />
+                  <Menu mnemonicParsing="false" text="Unspecified Menu" visible="false">
+                    <items>
+                      <MenuItem mnemonicParsing="false" text="Action 1" />
+                    </items>
+                  </Menu>
                     </items>
                 </Menu>
                 <Menu mnemonicParsing="false" text="Справочники">
                     <items>
-                        <MenuItem fx:id="addRgvkMenuItem" mnemonicParsing="false" onAction="#handleAddRgvkMenuItem"
-                                  text="РГВК"/>
-                        <MenuItem fx:id="addHonorMenuItem" mnemonicParsing="false" onAction="#handleAddHonorMenuItem"
-                                  text="Награды"/>
-                        <MenuItem fx:id="addRankMenuItem" mnemonicParsing="false" onAction="#handleAddRankMenuItem"
-                                  text="Звания"/>
-                        <MenuItem fx:id="addWoundTypeMenuItem" mnemonicParsing="false"
-                                  onAction="#handleAddWoundTypeMenuItem" text="Ранения"/>
-                        <MenuItem fx:id="addWoundDisabilityMenuItem" mnemonicParsing="false"
-                                  onAction="#handleAddWoundDisabilityMenuItem" text="Инвалидности"/>
+                        <MenuItem fx:id="addRgvkMenuItem" mnemonicParsing="false" onAction="#handleAddRgvkMenuItem" text="РГВК" visible="false" />
+                        <MenuItem fx:id="addHonorMenuItem" mnemonicParsing="false" onAction="#handleAddHonorMenuItem" text="Награды" />
+                        <MenuItem fx:id="addRankMenuItem" mnemonicParsing="false" onAction="#handleAddRankMenuItem" text="Звания" />
+                        <MenuItem fx:id="addWoundTypeMenuItem" mnemonicParsing="false" onAction="#handleAddWoundTypeMenuItem" text="Ранения" />
+                        <MenuItem fx:id="addWoundDisabilityMenuItem" mnemonicParsing="false" onAction="#handleAddWoundDisabilityMenuItem" text="Инвалидности" />
+                  <SeparatorMenuItem fx:id="refSeparator1" mnemonicParsing="false" />
+                        <MenuItem fx:id="exportHonors" mnemonicParsing="false" onAction="#handleExportHonors" text="Экспорт наград" />
+                        <MenuItem fx:id="exportRanks" mnemonicParsing="false" onAction="#handleExportRanks" text="Экспорт званий" />
+                        <MenuItem fx:id="exportWoundTypes" mnemonicParsing="false" onAction="#handleExportWoundTypes" text="Экспорт ранений" />
+                        <MenuItem fx:id="exportWoundDisabilities" mnemonicParsing="false" onAction="#handleExportWoundDisabilities" text="Экспорт инвалидностей" />
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                        <MenuItem fx:id="importDir" mnemonicParsing="false" onAction="#handleImportDir" text="Импорт справочников" />
                     </items>
                 </Menu>
                 <Menu mnemonicParsing="false" text="База данных">
                     <items>
-                        <MenuItem fx:id="exportInXML" mnemonicParsing="false" onAction="#handleExportInXML"
-                                  text="Экспорт базы"/>
-                        <MenuItem fx:id="importInXML" mnemonicParsing="false" onAction="#handleImportInXML"
-                                  text="Импорт базы"/>
+                        <MenuItem fx:id="exportInXML" mnemonicParsing="false" onAction="#handleExportInXML" text="Экспорт базы" />
+                        <MenuItem fx:id="importInXML" mnemonicParsing="false" onAction="#handleImportInXML" text="Импорт базы" />
                     </items>
                 </Menu>
             </menus>
         </MenuBar>
-        <ComboBox fx:id="selectFieldForSearch" layoutY="29.0" prefWidth="150.0" promptText="Выбрать поле"
-                  AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="28.0"/>
-        <TextField fx:id="searchTextField" disable="true" layoutX="155.0" layoutY="29.0" promptText="Введите данные"
-                   AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="160.0" AnchorPane.topAnchor="28.0"/>
-        <Button fx:id="searchButton" disable="true" layoutX="309.0" layoutY="28.0" mnemonicParsing="false"
-                onAction="#handleSearchButton" text="Поиск" AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="310.0"
-                AnchorPane.topAnchor="28.0"/>
+        <ComboBox fx:id="selectFieldForSearch" layoutY="29.0" prefWidth="150.0" promptText="Выбрать поле" AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="28.0" />
+        <TextField fx:id="searchTextField" disable="true" layoutX="155.0" layoutY="29.0" promptText="Введите данные" AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="160.0" AnchorPane.topAnchor="28.0" />
+        <Button fx:id="searchButton" disable="true" layoutX="309.0" layoutY="28.0" mnemonicParsing="false" onAction="#handleSearchButton" text="Поиск" AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="310.0" AnchorPane.topAnchor="28.0" />
     </children>
 </AnchorPane>

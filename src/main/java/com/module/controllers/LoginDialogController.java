@@ -12,6 +12,7 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 
 
@@ -38,6 +39,7 @@ public class LoginDialogController {
         try {
             final String userName = inputDistrictField.getText().trim();
             final String password = inputPasswordField.getText().trim();
+
 
             Authentication request = new UsernamePasswordAuthenticationToken(userName, password);
             Authentication result = authManager.authenticate(request);

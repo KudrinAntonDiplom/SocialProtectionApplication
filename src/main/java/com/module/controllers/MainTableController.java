@@ -1,8 +1,11 @@
 package com.module.controllers;
 
 import com.module.model.entity.VeteranEntity;
+import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.SortedList;
 import javafx.fxml.FXML;
 import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TableCell;
@@ -14,6 +17,7 @@ import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.Comparator;
 import java.util.LinkedList;
 
 @Data
@@ -73,6 +77,7 @@ public class MainTableController {
     @FXML
     private void initialize() {
         caseNumberColumn.setCellValueFactory(new PropertyValueFactory<>("caseNumber"));
+        caseNumberColumn.setComparator(new CustomComparator());
         militaryRankColumn.setCellValueFactory(new PropertyValueFactory<>("militaryRank"));
         lastNameColumn.setCellValueFactory(new PropertyValueFactory<>("secondName"));
         firstNameColumn.setCellValueFactory(new PropertyValueFactory<>("firstName"));
@@ -105,6 +110,27 @@ public class MainTableController {
 
         mainTable.setItems(veteransData);
         mainTable.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
+    }
+
+    private class CustomComparator implements Comparator<String>{
+
+        @Override
+        public int compare(String o1, String o2) {
+            if (o1 == null && o2 == null) return 0;
+            if (o1 == null) return -1;
+            if (o2 == null) return 1;
+
+            Integer i1=null;
+            try{ i1=Integer.valueOf(o1); } catch(NumberFormatException ignored){}
+            Integer i2=null;
+            try{ i2=Integer.valueOf(o2); } catch(NumberFormatException ignored){}
+
+            if(i1==null && i2==null) return o1.compareTo(o2);
+            if(i1==null) return -1;
+            if(i2==null) return 1;
+
+            return i1-i2;
+        }
     }
 
     VeteranEntity getSelectedVeteran() {

@@ -47,7 +47,7 @@ public class NewRGVKDialogController {
         existsRgvkTable.setItems(rgvkData);
 
         existsRgvkTable.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
-            if (newSelection != null) {
+            if (newSelection != null && databaseWorker.isAdmin()) {
                 editButton.setDisable(false);
                 deleteButton.setDisable(false);
             } else {
@@ -56,7 +56,7 @@ public class NewRGVKDialogController {
             }
         });
         newRgvkTextField.textProperty().addListener((observable, oldValue, newValue) -> {
-            if (!newValue.trim().isEmpty())
+            if (!newValue.trim().isEmpty() && databaseWorker.isAdmin())
                 saveButton.setDisable(false);
             else saveButton.setDisable(true);
         });

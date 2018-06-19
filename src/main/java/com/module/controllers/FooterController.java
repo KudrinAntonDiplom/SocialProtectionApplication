@@ -47,7 +47,7 @@ public class FooterController {
 
     public void setPaginationProperties() {
         recordCount = rootManager.getDatabaseWorker().getVeteransCount((new QueryBuilder().prepareSelectQuery(rootManager.getFiltersController().getFiltersMap(), -2)));
-        tableViewPagination.setPageCount(recordCount / 50 + 1);
+        tableViewPagination.setPageCount(recordCount / 500000 + 1);
         recordsCountField.setText(String.valueOf(recordCount));
         tableViewPagination.setPageFactory(this::createPage);
     }

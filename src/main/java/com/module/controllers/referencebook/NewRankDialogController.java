@@ -45,7 +45,7 @@ public class NewRankDialogController {
         existsRanksTable.setItems(rankData);
 
         existsRanksTable.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
-            if (newSelection != null) {
+            if (newSelection != null && databaseWorker.isAdmin()) {
                 editButton.setDisable(false);
                 deleteButton.setDisable(false);
             } else {
@@ -54,7 +54,7 @@ public class NewRankDialogController {
             }
         });
         newRankTextField.textProperty().addListener((observable, oldValue, newValue) -> {
-            if (!newValue.trim().isEmpty())
+            if (!newValue.trim().isEmpty() && databaseWorker.isAdmin())
                 saveButton.setDisable(false);
             else saveButton.setDisable(true);
         });

@@ -46,8 +46,11 @@ public class QueryBuilder {
     }
 
     public void getByFamilyMembers(String value) {
-        this.joinString += " LEFT JOIN family_members fm on v.uuid=fm.veteran_uuid";
-        this.whereArguments.add("fm.relation_degree is null");
+        this.whereArguments.add("v.is_alone='1'");
+    }
+
+    public void getByDeadOnly(String value) {
+        this.whereArguments.add("v.is_dead='1'");
     }
 
     public void getByFirstName(String value) {
@@ -146,6 +149,11 @@ public class QueryBuilder {
         this.whereArguments.add("wt.type='" + value + "'");
     }
 
+    public void getByWoundDisability(String value) {
+        this.joinString += " LEFT JOIN veteran_wounds vw ON vw.veteran_uuid=v.uuid LEFT JOIN wound_disabilities wd ON vw.disability_uuid=wd.uuid";
+        this.whereArguments.add("wd.disability='" + value + "'");
+    }
+
     public String prepareSelectQuery(Map<String, String> filters, int page) {
         this.resetQuery();
         isDeadValues.add(String.valueOf(0));
@@ -177,7 +185,7 @@ public class QueryBuilder {
             countQuery = "*";
 
             if (page != -1) {
-                paginator = " LIMIT 50 OFFSET " + (page * 50);
+                paginator = " LIMIT 500000 OFFSET " + (page * 500000);
             }
         }
 

@@ -56,6 +56,9 @@ public class VeteranDialogDataManager {
         this.veteranEntity.setDateOfDeath(veteranDialogManager.getMainDataPaneController().getDateOfDeathField().getValue());
         this.veteranEntity.setBurialPlace(veteranDialogManager.getMainDataPaneController().getBurialPlaceField().getText());
 
+        this.veteranEntity.setIsAlone(veteranDialogManager.getMainDataPaneController().getIsAloneCheckBox().isSelected());
+
+
         try {
             this.veteranEntity.setPhoto(ImageConverter.convertImageToBytes(veteranDialogManager.getMainDataPaneController().getImagePhotoView().getImage()));
         } catch (SQLException e) {
@@ -119,6 +122,8 @@ public class VeteranDialogDataManager {
             veteranDialogManager.getMainDataPaneController().getDateOfDeathField().setValue(this.veteranEntity.getDateOfDeath());
             veteranDialogManager.getMainDataPaneController().getBurialPlaceField().setText(this.veteranEntity.getBurialPlace());
         }
+
+        veteranDialogManager.getMainDataPaneController().getIsAloneCheckBox().selectedProperty().setValue(this.veteranEntity.getIsAlone());
 
         veteranDialogManager.getMainDataPaneController().getImagePhotoView().setImage(ImageConverter.convertBytesToImage(this.veteranEntity.getPhoto()));
 

@@ -21,6 +21,12 @@ public class VeteranHonorEntity {
     @Column(name = "decree")
     private String decree;
 
+    @Column(name = "honor_series")
+    private String honorSeries;
+
+    @Column(name = "honor_number")
+    private String honorNumber;
+
     @LazyCollection(LazyCollectionOption.FALSE)
     @ManyToOne()
     @JoinColumn(name = "honor_uuid")
@@ -38,12 +44,14 @@ public class VeteranHonorEntity {
     private VeteranEntity veteran;
 
     public VeteranHonorEntity() {
-        this(null, null, null, null);
+        this(null, null, null, null, null, null);
     }
 
-    public VeteranHonorEntity(LocalDate dateOfReceiving, String decree, VeteranEntity veteran, HonorEntity honor) {
+    public VeteranHonorEntity(LocalDate dateOfReceiving, String decree, VeteranEntity veteran, HonorEntity honor, String honorSeries, String honorNumber) {
         this.dateOfReceiving = dateOfReceiving;
         this.decree = decree;
+        this.honorNumber = honorNumber;
+        this.honorSeries = honorSeries;
         this.honor = honor;
         this.veteran = veteran;
     }
@@ -84,6 +92,22 @@ public class VeteranHonorEntity {
         this.honor = honor;
     }
 
+    public String getHonorNumber() {
+        return honorNumber;
+    }
+
+    public void setHonorNumber(String honorNumber) {
+        this.honorNumber = honorNumber;
+    }
+
+    public String getHonorSeries() {
+        return honorSeries;
+    }
+
+    public void setHonorSeries(String honorSeries) {
+        this.honorSeries = honorSeries;
+    }
+
     public UUID getUuid() {
         return uuid;
     }
@@ -102,6 +126,6 @@ public class VeteranHonorEntity {
     }
 
     public String toString() {
-        return "Награда: " + dateOfReceiving + " " + decree;
+        return "Награда: " + dateOfReceiving + " " + decree + " " + honorSeries + " " + honorNumber;
     }
 }

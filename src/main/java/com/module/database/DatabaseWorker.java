@@ -95,6 +95,14 @@ public class DatabaseWorker {
         return districts;
     }
 
+    public boolean isAdmin() {
+        List<Role> roles = (List<Role>) SecurityContextHolder.getContext().getAuthentication().getAuthorities();
+        for (Role role : roles) {
+            if(role.getAuthority().contains("админ")) return true;
+        }
+        return false;
+    }
+
     public List<HonorEntity> getHonors() {
         return honorRepository.findAll();
     }

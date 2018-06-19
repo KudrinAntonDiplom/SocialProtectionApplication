@@ -53,6 +53,8 @@ public class MainDataPaneController {
     @FXML
     private CheckBox isDeadCheckBox;
     @FXML
+    private CheckBox isAloneCheckBox;
+    @FXML
     private TextField marchingOrganizationField;
     @FXML
     private TextField middleNameField;

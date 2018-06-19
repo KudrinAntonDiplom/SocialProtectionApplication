@@ -1,21 +1,20 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : localhost
-Source Server Version : 50717
+Source Server         : test
+Source Server Version : 50721
 Source Host           : localhost:3306
-Source Database       : social_protection
+Source Database       : social_protection_clear_backup
 
 Target Server Type    : MYSQL
-Target Server Version : 50717
+Target Server Version : 50721
 File Encoding         : 65001
 
-Date: 2017-06-18 17:42:32
+Date: 2018-03-15 09:13:48
 */
 
 SET FOREIGN_KEY_CHECKS=0;
 
-CREATE DATABASE social_protection;
 USE social_protection;
 
 -- ----------------------------
@@ -31,10 +30,12 @@ CREATE TABLE `categories` (
 -- ----------------------------
 -- Records of categories
 -- ----------------------------
+INSERT INTO `categories` VALUES (0x130AC313EB4E44938E63CA35A149B042, 'Члены семей военнослужащих, погибших в мирное время при исполнении обязанностей военной службы');
 INSERT INTO `categories` VALUES (0x165AFB2E3F154AD6B2EA5F7156819F9F, 'Ветераны Великой Отечественной войны,в том числе инвалиды Великой Отечественной войны');
 INSERT INTO `categories` VALUES (0x261BB1C4334A42738323EA3BC7F9D084, 'Участники других боевых операций по защите Отечества');
 INSERT INTO `categories` VALUES (0x72F3CFE360CB4B448358405C1A703777, 'Граждане, пострадавшие от последствий войн');
 INSERT INTO `categories` VALUES (0xA8A69F89D7FA4036B52C5BF581D331F8, 'Участники ликвидации последствий катастрофы на Чернобыльской АЭС, других радиационных аварий');
+INSERT INTO `categories` VALUES (0xBC999322608A4EFE99AEDE590E495448, 'Граждане, получившие инвалидность в период прохождения военной службы при исполнении обязанностей военной службы');
 INSERT INTO `categories` VALUES (0xD9B3C308352540569EFC7B52BD494C5F, 'Ветераны боевых действий на территории других государств, в том числе инвалиды боевых действий на территории других государств');
 
 -- ----------------------------
@@ -49,9 +50,9 @@ CREATE TABLE `displacements` (
   `decreased_place` varchar(150) DEFAULT NULL,
   `veteran_uuid` binary(16) DEFAULT NULL,
   PRIMARY KEY (`uuid`),
-  KEY `displacement_veteran_fk` (`veteran_uuid`),
-  CONSTRAINT `FKmelq7urksn80f35t3hl8m5b7f` FOREIGN KEY (`veteran_uuid`) REFERENCES `veterans` (`uuid`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `displacement_veteran_fk` FOREIGN KEY (`veteran_uuid`) REFERENCES `veterans` (`uuid`) ON DELETE CASCADE ON UPDATE CASCADE
+  KEY `displacement_veteran_fk` (`veteran_uuid`) USING BTREE,
+  CONSTRAINT `displacements_ibfk_1` FOREIGN KEY (`veteran_uuid`) REFERENCES `veterans` (`uuid`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `displacements_ibfk_2` FOREIGN KEY (`veteran_uuid`) REFERENCES `veterans` (`uuid`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
@@ -104,9 +105,9 @@ CREATE TABLE `documents` (
   `issued_by` varchar(150) DEFAULT NULL,
   `veteran_uuid` binary(16) DEFAULT NULL,
   PRIMARY KEY (`uuid`),
-  KEY `document_veteran_fk` (`veteran_uuid`),
-  CONSTRAINT `FKp5ohnvk1hckptkca8oiqariyn` FOREIGN KEY (`veteran_uuid`) REFERENCES `veterans` (`uuid`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `document_veteran_fk` FOREIGN KEY (`veteran_uuid`) REFERENCES `veterans` (`uuid`) ON DELETE CASCADE ON UPDATE CASCADE
+  KEY `document_veteran_fk` (`veteran_uuid`) USING BTREE,
+  CONSTRAINT `documents_ibfk_1` FOREIGN KEY (`veteran_uuid`) REFERENCES `veterans` (`uuid`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `documents_ibfk_2` FOREIGN KEY (`veteran_uuid`) REFERENCES `veterans` (`uuid`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
@@ -126,9 +127,9 @@ CREATE TABLE `family_members` (
   `date_of_birth` date DEFAULT NULL,
   `veteran_uuid` binary(16) DEFAULT NULL,
   PRIMARY KEY (`uuid`),
-  KEY `member_veteran_fk` (`veteran_uuid`),
-  CONSTRAINT `FKa3yhaoj2n8c69y1n8oh4oweur` FOREIGN KEY (`veteran_uuid`) REFERENCES `veterans` (`uuid`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `member_veteran_fk` FOREIGN KEY (`veteran_uuid`) REFERENCES `veterans` (`uuid`) ON DELETE CASCADE ON UPDATE CASCADE
+  KEY `member_veteran_fk` (`veteran_uuid`) USING BTREE,
+  CONSTRAINT `family_members_ibfk_1` FOREIGN KEY (`veteran_uuid`) REFERENCES `veterans` (`uuid`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `family_members_ibfk_2` FOREIGN KEY (`veteran_uuid`) REFERENCES `veterans` (`uuid`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
@@ -147,8 +148,8 @@ CREATE TABLE `help` (
   `type` varchar(255) DEFAULT NULL,
   `veteran_uuid` binary(16) DEFAULT NULL,
   PRIMARY KEY (`uuid`),
-  KEY `help_veteran_fk` (`veteran_uuid`),
-  CONSTRAINT `help_veteran_fk` FOREIGN KEY (`veteran_uuid`) REFERENCES `veterans` (`uuid`) ON DELETE CASCADE ON UPDATE CASCADE
+  KEY `help_veteran_fk` (`veteran_uuid`) USING BTREE,
+  CONSTRAINT `help_ibfk_1` FOREIGN KEY (`veteran_uuid`) REFERENCES `veterans` (`uuid`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
@@ -168,6 +169,22 @@ CREATE TABLE `honors` (
 -- ----------------------------
 -- Records of honors
 -- ----------------------------
+INSERT INTO `honors` VALUES (0x03467C5EE21546A58BAAF27A6B5030B7, 'Медаль \"За победу над Японией\"');
+INSERT INTO `honors` VALUES (0x12D41487DCAA4B05ACCAC397395A6EFE, 'Знак \"Жителю блокадного Ленинграда\"');
+INSERT INTO `honors` VALUES (0x20B850E3EB7A46BE86F2519898052F32, 'Орден \"За службу Родине\"');
+INSERT INTO `honors` VALUES (0x3AB8FC69A6C1490EB873BF4C1DB4F97D, 'Медаль \"Воину-интернационалисту от благодарного афганского народа\"');
+INSERT INTO `honors` VALUES (0x58AB0CD3E2164B80B9AAA78EDD2A400E, 'Орден Отечественной войны II степени');
+INSERT INTO `honors` VALUES (0x604BFF0150B64A0B90147AF8B25B83CC, 'Медаль \"За взятие Берлина\"');
+INSERT INTO `honors` VALUES (0x68577A590D034B0E89C4F921BF917314, 'Медаль \"За боевые заслуги\"');
+INSERT INTO `honors` VALUES (0x6D500F1A91614299A9A4CA77470AD113, 'Медаль \"За доблестный труд в Великой Отечественной войне 1941-1945 гг\"');
+INSERT INTO `honors` VALUES (0x993875460E624670A0F39A8F68A449F4, 'Медаль \"За оборону Кавказа\"');
+INSERT INTO `honors` VALUES (0x9D08AF5BE1B845C7BC01316D0B7D3DA7, 'Медаль \"За оборону Ленинграда\"');
+INSERT INTO `honors` VALUES (0xA96F969D4FE84864ABD63402FEE8984D, 'Медаль \"За отвагу\"');
+INSERT INTO `honors` VALUES (0xC9DD46BA3E364B4584BC0BD3AF930924, 'Орден Отечественной войны I степени');
+INSERT INTO `honors` VALUES (0xCBCCDCDDD44342BAA3C4C09CB66D4AAC, 'Медаль \"За победу над Германией в Великой Отечественной войне 1941-1945 гг\"\"');
+INSERT INTO `honors` VALUES (0xDFAD9DA36A58409AB9C42A1BE1FA15C4, 'Медаль\"За взятие Кенигсберга\"');
+INSERT INTO `honors` VALUES (0xF1EEE7F546304A8A945DE05502E1734C, 'Орден Славы III степени');
+INSERT INTO `honors` VALUES (0xF9C7361CB08B4E84A75A1F627968994A, 'Орден Красной Звезды');
 
 -- ----------------------------
 -- Table structure for military_terms
@@ -182,9 +199,9 @@ CREATE TABLE `military_terms` (
   `veteran_uuid` binary(16) DEFAULT NULL,
   `unit` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`uuid`),
-  KEY `term_veteran_fk` (`veteran_uuid`),
-  CONSTRAINT `FK2a7xk30vgbvjjgy9sq6krqy3l` FOREIGN KEY (`veteran_uuid`) REFERENCES `veterans` (`uuid`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `term_veteran_fk` FOREIGN KEY (`veteran_uuid`) REFERENCES `veterans` (`uuid`) ON DELETE CASCADE ON UPDATE CASCADE
+  KEY `term_veteran_fk` (`veteran_uuid`) USING BTREE,
+  CONSTRAINT `military_terms_ibfk_1` FOREIGN KEY (`veteran_uuid`) REFERENCES `veterans` (`uuid`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `military_terms_ibfk_2` FOREIGN KEY (`veteran_uuid`) REFERENCES `veterans` (`uuid`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
@@ -199,12 +216,27 @@ CREATE TABLE `ranks` (
   `uuid` binary(16) NOT NULL,
   `name` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`uuid`),
-  UNIQUE KEY `uuid_UNIQUE` (`uuid`)
+  UNIQUE KEY `uuid_UNIQUE` (`uuid`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of ranks
 -- ----------------------------
+INSERT INTO `ranks` VALUES (0x022AF087C3024AA3AEB3AA786DFAF442, 'ефрейтор');
+INSERT INTO `ranks` VALUES (0x035C9FA842344326801E6A53913A0259, 'не имеет');
+INSERT INTO `ranks` VALUES (0x205A339897AF408B9F08A28D51D68FBF, 'подполковник');
+INSERT INTO `ranks` VALUES (0x306A825535084CF884DB82EFE9A8E979, 'майор');
+INSERT INTO `ranks` VALUES (0x3ADAA0E14CEB4FB89186B1DFCF3A7931, 'старший лейтенант');
+INSERT INTO `ranks` VALUES (0x91537ED6CB664CD1B44E36C3E7078361, 'старшина');
+INSERT INTO `ranks` VALUES (0x98844DF80B1F4B53A6AB33A104AFA085, 'младший сержант');
+INSERT INTO `ranks` VALUES (0xAF903FAAF4124EDA948D3291BF96E438, 'прапорщик');
+INSERT INTO `ranks` VALUES (0xB4B1925A61DD4B7ABD164BE3705D570F, 'полковник');
+INSERT INTO `ranks` VALUES (0xD117AF1E93DC4EC8AD9C9F7F50B840AB, 'лейтенант');
+INSERT INTO `ranks` VALUES (0xDB7DA14B382C4A3F8241CDABBC993731, 'старший прапорщик');
+INSERT INTO `ranks` VALUES (0xE781777751A64BB88CD164DBE15D28D7, 'старший сержант');
+INSERT INTO `ranks` VALUES (0xE9226DA8320D495EB663E504D05CCDCD, 'капитан');
+INSERT INTO `ranks` VALUES (0xE9547D8D8B8A4F4186B84A2E9A0B23A1, 'рядовой');
+INSERT INTO `ranks` VALUES (0xF63FF218F8484743BB5688F320250CCF, 'сержант');
 
 -- ----------------------------
 -- Table structure for rgvk
@@ -230,10 +262,10 @@ CREATE TABLE `roles` (
   `user_uuid` binary(16) DEFAULT NULL,
   `district_uuid` binary(16) DEFAULT NULL,
   PRIMARY KEY (`uuid`),
-  KEY `role_user_fk` (`user_uuid`),
-  KEY `role_district_fk` (`district_uuid`),
-  CONSTRAINT `role_district_fk` FOREIGN KEY (`district_uuid`) REFERENCES `districts` (`uuid`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `role_user_fk` FOREIGN KEY (`user_uuid`) REFERENCES `users` (`uuid`) ON DELETE CASCADE ON UPDATE CASCADE
+  KEY `role_user_fk` (`user_uuid`) USING BTREE,
+  KEY `role_district_fk` (`district_uuid`) USING BTREE,
+  CONSTRAINT `roles_ibfk_1` FOREIGN KEY (`district_uuid`) REFERENCES `districts` (`uuid`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `roles_ibfk_2` FOREIGN KEY (`user_uuid`) REFERENCES `users` (`uuid`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
@@ -306,9 +338,9 @@ CREATE TABLE `subcategories` (
   `name` varchar(255) DEFAULT NULL,
   `category_uuid` binary(16) DEFAULT NULL,
   PRIMARY KEY (`uuid`),
-  KEY `sub_category_fk` (`category_uuid`),
-  CONSTRAINT `FK7ar6rfl7lq2o7u15byyxoo8jf` FOREIGN KEY (`category_uuid`) REFERENCES `categories` (`uuid`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `sub_category_fk` FOREIGN KEY (`category_uuid`) REFERENCES `categories` (`uuid`) ON DELETE CASCADE ON UPDATE CASCADE
+  KEY `sub_category_fk` (`category_uuid`) USING BTREE,
+  CONSTRAINT `subcategories_ibfk_1` FOREIGN KEY (`category_uuid`) REFERENCES `categories` (`uuid`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `subcategories_ibfk_2` FOREIGN KEY (`category_uuid`) REFERENCES `categories` (`uuid`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
@@ -316,11 +348,15 @@ CREATE TABLE `subcategories` (
 -- ----------------------------
 INSERT INTO `subcategories` VALUES (0x0A3C9824FFD44886A1EACEAA9AF20758, 'Члены семей, погибших (умерших) в годы ВОв', 0x72F3CFE360CB4B448358405C1A703777);
 INSERT INTO `subcategories` VALUES (0x1707E156922842D99EC499E6654133DA, 'Ветераны боевых действий на территории других государств', 0xD9B3C308352540569EFC7B52BD494C5F);
-INSERT INTO `subcategories` VALUES (0x1D3EC9D81FCC40C6864A8853D1C60CA6, 'Бывшие узники фашистских концлагерей', 0x72F3CFE360CB4B448358405C1A703777);
+INSERT INTO `subcategories` VALUES (0x1D3EC9D81FCC40C6864A8853D1C60CA6, 'Бывшие узники фашистских концлагерей (совершеннолетние)', 0x72F3CFE360CB4B448358405C1A703777);
 INSERT INTO `subcategories` VALUES (0x23CFD3ABA4EA40A4A9FF3E1B77327A96, 'Инвалиды боевых действий на территории других государств', 0xD9B3C308352540569EFC7B52BD494C5F);
 INSERT INTO `subcategories` VALUES (0x27431E912F894D37901912F9645A5866, 'Инвалиды с детства (последствия военных действий)', 0x72F3CFE360CB4B448358405C1A703777);
+INSERT INTO `subcategories` VALUES (0x3A82FB07614E403D85EF47B2E892ECD9, 'Статья 20', 0xA8A69F89D7FA4036B52C5BF581D331F8);
 INSERT INTO `subcategories` VALUES (0x4B586618324142FC8B52D04AB8422F29, 'Участники ликвидации последствий катастрофы на Чернобыльской АЭС', 0xA8A69F89D7FA4036B52C5BF581D331F8);
+INSERT INTO `subcategories` VALUES (0x5D50D62D53F0479EBA07C190FAC1E77B, 'Статья 18', 0xA8A69F89D7FA4036B52C5BF581D331F8);
 INSERT INTO `subcategories` VALUES (0x5DE607D9F672438BB8E699BF8B25BAFE, 'Участники ВОв', 0x165AFB2E3F154AD6B2EA5F7156819F9F);
+INSERT INTO `subcategories` VALUES (0x69B66C51D77F40479ECA901F8CC16D7F, 'Статья 19', 0xA8A69F89D7FA4036B52C5BF581D331F8);
+INSERT INTO `subcategories` VALUES (0x6A7212043D0B4F329CBEBFAFA0E01AA6, 'Бывшие узники фашистских концлагерей (несовершеннолетние)', 0x72F3CFE360CB4B448358405C1A703777);
 INSERT INTO `subcategories` VALUES (0x94ACFDD7F25B49C7AF44C476D94E2939, 'Инвалиды ВОв', 0x165AFB2E3F154AD6B2EA5F7156819F9F);
 INSERT INTO `subcategories` VALUES (0xB66694405B11458A9E2355414A01E13E, 'Члены семей военнослужащих, погибших в мирное время при исполнении обязанностей военной службы', 0xD9B3C308352540569EFC7B52BD494C5F);
 INSERT INTO `subcategories` VALUES (0xBA690BC5B5804AF394E12A527D8F634C, 'Награжденные', 0x165AFB2E3F154AD6B2EA5F7156819F9F);
@@ -328,6 +364,7 @@ INSERT INTO `subcategories` VALUES (0xBAF87E50625143D2AAC055DE020A029A, 'При�
 INSERT INTO `subcategories` VALUES (0xBFAEA39D678E4DA3AA406BE84945C7B3, 'Граждане, получившие инвалидность в период прохождения военной службы при исполнении обязанностей военной службы', 0xD9B3C308352540569EFC7B52BD494C5F);
 INSERT INTO `subcategories` VALUES (0xD566BCD9739949FCAE441CC16ACADD55, 'Члены семей, умерших вследствие заболеваний, вызванных катастрофой на Чернобыльской АЭС, другими радиационными авариями', 0xA8A69F89D7FA4036B52C5BF581D331F8);
 INSERT INTO `subcategories` VALUES (0xE800F41F27D64CA988BC86021D1FBDA7, 'Блокадники', 0x165AFB2E3F154AD6B2EA5F7156819F9F);
+INSERT INTO `subcategories` VALUES (0xF236E390BFCC48918D48F6B1767765C4, 'Работники, направляющиеся в Афганистан', 0xD9B3C308352540569EFC7B52BD494C5F);
 INSERT INTO `subcategories` VALUES (0xFD7ACDF9004247A5BB790857E1384748, 'Участники ликвидации других радиационных аварий', 0xA8A69F89D7FA4036B52C5BF581D331F8);
 
 -- ----------------------------
@@ -392,27 +429,28 @@ CREATE TABLE `veterans` (
   `phone_number` varchar(30) DEFAULT '',
   `marching_organization` varchar(255) DEFAULT '',
   `is_dead` tinyint(1) DEFAULT '0',
+  `is_alone` tinyint(1) DEFAULT NULL,
   `burial_place` varchar(255) DEFAULT '',
   `date_of_death` date DEFAULT NULL,
   `position` varchar(255) DEFAULT '',
   `photo` blob,
   `rgvk_uuid` binary(16) DEFAULT NULL,
   PRIMARY KEY (`uuid`),
-  UNIQUE KEY `veterans_uuid_uindex` (`uuid`),
+  UNIQUE KEY `veterans_uuid_uindex` (`uuid`) USING BTREE,
   KEY `veteran_category_fk` (`category_uuid`,`rank_uuid`) USING BTREE,
   KEY `veteran_rank_fk` (`rank_uuid`,`district_uuid`) USING BTREE,
   KEY `veteran_sub` (`subcategory_uuid`,`rank_uuid`) USING BTREE,
   KEY `veteran_district_fk` (`district_uuid`,`rank_uuid`) USING BTREE,
-  KEY `veteran_rgvk_fk` (`rgvk_uuid`),
-  CONSTRAINT `FKc5a3vv0u6uiudr0xxkiy9modb` FOREIGN KEY (`rank_uuid`) REFERENCES `ranks` (`uuid`) ON DELETE SET NULL ON UPDATE CASCADE,
-  CONSTRAINT `FKiwsrnn8n0gekhl2tttyqarymj` FOREIGN KEY (`subcategory_uuid`) REFERENCES `subcategories` (`uuid`) ON DELETE SET NULL ON UPDATE CASCADE,
-  CONSTRAINT `FKqmtlvkxsybyihhe0mf1i1ej5k` FOREIGN KEY (`district_uuid`) REFERENCES `districts` (`uuid`) ON DELETE SET NULL ON UPDATE CASCADE,
-  CONSTRAINT `FKqpaglrriwuo92p630k0cxc3dd` FOREIGN KEY (`category_uuid`) REFERENCES `categories` (`uuid`) ON DELETE SET NULL ON UPDATE CASCADE,
-  CONSTRAINT `veteran_category_fk` FOREIGN KEY (`category_uuid`) REFERENCES `categories` (`uuid`) ON DELETE SET NULL ON UPDATE CASCADE,
-  CONSTRAINT `veteran_district_fk` FOREIGN KEY (`district_uuid`) REFERENCES `districts` (`uuid`) ON DELETE SET NULL ON UPDATE CASCADE,
-  CONSTRAINT `veteran_rank_fk` FOREIGN KEY (`rank_uuid`) REFERENCES `ranks` (`uuid`) ON DELETE SET NULL ON UPDATE CASCADE,
-  CONSTRAINT `veteran_rgvk_fk` FOREIGN KEY (`rgvk_uuid`) REFERENCES `rgvk` (`uuid`) ON DELETE SET NULL ON UPDATE CASCADE,
-  CONSTRAINT `veteran_sub` FOREIGN KEY (`subcategory_uuid`) REFERENCES `subcategories` (`uuid`) ON DELETE SET NULL ON UPDATE CASCADE
+  KEY `veteran_rgvk_fk` (`rgvk_uuid`) USING BTREE,
+  CONSTRAINT `veterans_ibfk_1` FOREIGN KEY (`rank_uuid`) REFERENCES `ranks` (`uuid`) ON DELETE SET NULL ON UPDATE CASCADE,
+  CONSTRAINT `veterans_ibfk_2` FOREIGN KEY (`subcategory_uuid`) REFERENCES `subcategories` (`uuid`) ON DELETE SET NULL ON UPDATE CASCADE,
+  CONSTRAINT `veterans_ibfk_3` FOREIGN KEY (`district_uuid`) REFERENCES `districts` (`uuid`) ON DELETE SET NULL ON UPDATE CASCADE,
+  CONSTRAINT `veterans_ibfk_4` FOREIGN KEY (`category_uuid`) REFERENCES `categories` (`uuid`) ON DELETE SET NULL ON UPDATE CASCADE,
+  CONSTRAINT `veterans_ibfk_5` FOREIGN KEY (`category_uuid`) REFERENCES `categories` (`uuid`) ON DELETE SET NULL ON UPDATE CASCADE,
+  CONSTRAINT `veterans_ibfk_6` FOREIGN KEY (`district_uuid`) REFERENCES `districts` (`uuid`) ON DELETE SET NULL ON UPDATE CASCADE,
+  CONSTRAINT `veterans_ibfk_7` FOREIGN KEY (`rank_uuid`) REFERENCES `ranks` (`uuid`) ON DELETE SET NULL ON UPDATE CASCADE,
+  CONSTRAINT `veterans_ibfk_8` FOREIGN KEY (`rgvk_uuid`) REFERENCES `rgvk` (`uuid`) ON DELETE SET NULL ON UPDATE CASCADE,
+  CONSTRAINT `veterans_ibfk_9` FOREIGN KEY (`subcategory_uuid`) REFERENCES `subcategories` (`uuid`) ON DELETE SET NULL ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
@@ -429,11 +467,13 @@ CREATE TABLE `veteran_honors` (
   `honor_uuid` binary(16) DEFAULT NULL,
   `decree` varchar(255) DEFAULT NULL,
   `date_of_receiving` date DEFAULT NULL,
+  `honor_series` varchar(50) DEFAULT NULL,
+  `honor_number` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`uuid`),
-  KEY `honors_veteran_fk` (`veteran_uuid`),
-  KEY `honors_honor_fk` (`honor_uuid`),
-  CONSTRAINT `FK47ly0bnrsgos50xn6s4yfq5ti` FOREIGN KEY (`honor_uuid`) REFERENCES `honors` (`uuid`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `FKhao0hku12dfe0inm1klsl6cis` FOREIGN KEY (`veteran_uuid`) REFERENCES `veterans` (`uuid`) ON DELETE CASCADE ON UPDATE CASCADE
+  KEY `honors_veteran_fk` (`veteran_uuid`) USING BTREE,
+  KEY `honors_honor_fk` (`honor_uuid`) USING BTREE,
+  CONSTRAINT `veteran_honors_ibfk_1` FOREIGN KEY (`honor_uuid`) REFERENCES `honors` (`uuid`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `veteran_honors_ibfk_2` FOREIGN KEY (`veteran_uuid`) REFERENCES `veterans` (`uuid`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
@@ -451,12 +491,12 @@ CREATE TABLE `veteran_wounds` (
   `disability_uuid` binary(16) DEFAULT NULL,
   `type_uuid` binary(16) DEFAULT NULL,
   PRIMARY KEY (`uuid`),
-  KEY `wound_veteran_fk` (`veteran_uuid`),
-  KEY `FK7lm715cjv7o51227m2qr221kq` (`disability_uuid`),
-  KEY `FKar545h8a4iy6i6ru5pmuratwv` (`type_uuid`),
-  CONSTRAINT `FK7lm715cjv7o51227m2qr221kq` FOREIGN KEY (`disability_uuid`) REFERENCES `wound_disabilities` (`uuid`) ON DELETE SET NULL ON UPDATE CASCADE,
-  CONSTRAINT `FKar545h8a4iy6i6ru5pmuratwv` FOREIGN KEY (`type_uuid`) REFERENCES `wound_types` (`uuid`) ON DELETE SET NULL ON UPDATE CASCADE,
-  CONSTRAINT `FKlgq1cang2v6x66pxx5etwqt96` FOREIGN KEY (`veteran_uuid`) REFERENCES `veterans` (`uuid`) ON DELETE CASCADE ON UPDATE CASCADE
+  KEY `wound_veteran_fk` (`veteran_uuid`) USING BTREE,
+  KEY `FK7lm715cjv7o51227m2qr221kq` (`disability_uuid`) USING BTREE,
+  KEY `FKar545h8a4iy6i6ru5pmuratwv` (`type_uuid`) USING BTREE,
+  CONSTRAINT `veteran_wounds_ibfk_1` FOREIGN KEY (`disability_uuid`) REFERENCES `wound_disabilities` (`uuid`) ON DELETE SET NULL ON UPDATE CASCADE,
+  CONSTRAINT `veteran_wounds_ibfk_2` FOREIGN KEY (`type_uuid`) REFERENCES `wound_types` (`uuid`) ON DELETE SET NULL ON UPDATE CASCADE,
+  CONSTRAINT `veteran_wounds_ibfk_3` FOREIGN KEY (`veteran_uuid`) REFERENCES `veterans` (`uuid`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
@@ -475,8 +515,8 @@ CREATE TABLE `work_places` (
   `veteran_uuid` binary(16) DEFAULT NULL,
   `position` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`uuid`),
-  KEY `workPlace_veteran_fk` (`veteran_uuid`),
-  CONSTRAINT `workPlace_veteran_fk` FOREIGN KEY (`veteran_uuid`) REFERENCES `veterans` (`uuid`) ON DELETE CASCADE ON UPDATE CASCADE
+  KEY `workPlace_veteran_fk` (`veteran_uuid`) USING BTREE,
+  CONSTRAINT `work_places_ibfk_1` FOREIGN KEY (`veteran_uuid`) REFERENCES `veterans` (`uuid`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
@@ -496,6 +536,9 @@ CREATE TABLE `wound_disabilities` (
 -- ----------------------------
 -- Records of wound_disabilities
 -- ----------------------------
+INSERT INTO `wound_disabilities` VALUES (0x39AF788FABB048D1AB8F9F8B5C9E9EE7, 'I группа');
+INSERT INTO `wound_disabilities` VALUES (0xC5B3E67B81E749EDB8E75127966705FF, 'II группа');
+INSERT INTO `wound_disabilities` VALUES (0xD91F17376D364B178C19CA7965F9E69E, 'III группа');
 
 -- ----------------------------
 -- Table structure for wound_types
@@ -510,3 +553,8 @@ CREATE TABLE `wound_types` (
 -- ----------------------------
 -- Records of wound_types
 -- ----------------------------
+INSERT INTO `wound_types` VALUES (0x08500905BBAC427CAD87ECA76C895AF2, 'контузия');
+INSERT INTO `wound_types` VALUES (0x0FEC1E0A3B024616BB0FA7C044B18141, 'легкая травма');
+INSERT INTO `wound_types` VALUES (0x4D38C7F8DC8F43C486E295983A92BD42, 'тяжелое ранение');
+INSERT INTO `wound_types` VALUES (0xB482E76A8812400CB678D3D5DFA92CB5, 'легкое ранение');
+SET FOREIGN_KEY_CHECKS=1;
